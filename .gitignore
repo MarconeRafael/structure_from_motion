@@ -1,0 +1,43 @@
+# GHDL work directory and config
+/work/
+/work-*.cf
+*.cf
+
+# Compiled object files
+*.o
+
+# Waveforms e logs de simulação
+*.vcd
+*.ghw
+*.wcfg
+
+# Executáveis gerados (Linux e Windows)
+tb_fundamental
+*.exe
+*.out
+
+# Logs e relatórios de build
+*.log
+
+# Diretórios de build genéricos
+/bin/
+/obj/
+
+# Scripts temporários e backups
+*.sh~
+*~
+*.swp
+*.bak
+*.orig
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# GTKWave session files
+*.gtkw
