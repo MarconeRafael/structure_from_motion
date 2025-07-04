@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use std.env.stop;  -- necessário para encerrar simulação
 use work.fixed_pkg.all;
 
 entity tb_fundamental is
@@ -28,28 +29,35 @@ architecture sim of tb_fundamental is
 
 begin
     UUT: FundamentalMatrixCalculator port map (
-        clk => clk,
-        reset => reset,
-        start => start,
-        pts1_x => pts1_x,
-        pts2_x => pts2_x,
-        F_out => F_out,
-        ready => ready
+        clk     => clk,
+        reset   => reset,
+        start   => start,
+        pts1_x  => pts1_x,
+        pts2_x  => pts2_x,
+        F_out   => F_out,
+        ready   => ready
     );
 
-    -- Clock 10ns
+    -- Clock de 10 ns (50 MHz)
     clk_process: process
     begin
-        wait for 5 ns;
-        clk <= not clk;
+        while true loop
+            wait for 5 ns;
+            clk <= not clk;
+        end loop;
     end process;
 
+    -- Estímulos e finalização da simulação
     stimulus: process
     begin
         wait for 20 ns;
         reset <= '0';
         start <= '1';
-        wait for 1000 ns; -- tempo de simulação
-        wait;
+
+        wait for 1000 ns;
+
+        report "Simulação encerrada com sucesso.";
+        stop;
     end process;
 end architecture;
+    
