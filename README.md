@@ -9,12 +9,38 @@ Este projeto implementa o algoritmo **Structure from Motion (SfM)** em hardware,
 
 ---
 
-## 📂 Estrutura do Projeto
+## � Como Executar e Explorar o Projeto
+
+### 1. Executar o protótipo Python (Jupyter Notebook)
+
+- O arquivo `Epipolar_Geometry.ipynb` contém o protótipo em Python para validação matemática das etapas do SfM.
+- Para executar:
+  1. Instale o Jupyter Notebook (caso não tenha):
+     ```bash
+     pip install notebook
+     ```
+  2. Inicie o Jupyter na pasta do projeto:
+     ```bash
+     jupyter notebook Epipolar_Geometry.ipynb
+     ```
+  3. O notebook será aberto no navegador, permitindo executar e modificar os códigos interativamente.
+
+### 2. Consultar o pseudo-código
+
+- O arquivo `SfM.txt` apresenta o pseudo-código detalhado do pipeline SfM, útil para entender a lógica antes de partir para a implementação em VHDL.
+
+### 3. Simular o código VHDL
+
+- Utilize o script `run.sh` para compilar e simular os módulos VHDL. Os resultados podem ser visualizados em arquivos de onda (`wave.vcd`).
+
+---
+
+## �📂 Estrutura do Projeto
 
 .
 ├── SfM.txt                  # Pseudo-código do algoritmo SfM
 ├── src/                     # Implementação principal em VHDL
-│   ├── Epipolar\_Geometry.ipynb   # Protótipo Python/Colab
+│   ├── Epipolar_Geometry.ipynb   # Protótipo Python/Colab
 │   ├── algebra\_pkg.vhd
 │   ├── algebra\_pkg\_body.vhd
 │   ├── essential\_matrix.vhd
@@ -38,12 +64,12 @@ Este projeto implementa o algoritmo **Structure from Motion (SfM)** em hardware,
 
 1. **Modelagem matemática**  
    - Uso de **Python (Jupyter/Colab)** para validar:
-     - Cálculo da matriz fundamental e essencial.
+     - Cálculo da matriz fundamental e essencial (`Epipolar_Geometry.ipynb`).
      - Geometria epipolar.
      - Triangulação de pontos 3D.
 
 2. **Pseudo-código**  
-   - Documento `SfM.txt` descreve a lógica algorítmica do pipeline SfM.
+   - Documento `SfM.txt` descreve a lógica algorítmica do pipeline SfM (consulte para entender o fluxo antes de implementar).
 
 3. **Implementação em VHDL**  
    - Arquivos em `src/` contêm a implementação modular:
@@ -59,6 +85,7 @@ Este projeto implementa o algoritmo **Structure from Motion (SfM)** em hardware,
      ```bash
      ./run.sh
      ```
+      - Resultados podem ser visualizados em arquivos de onda (`wave.vcd`).
 
 ---
 
