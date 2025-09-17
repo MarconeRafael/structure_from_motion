@@ -1,0 +1,307 @@
+INICIO
+
+    // Função para ler uma imagem e convertê-la para escala de cinza
+    FUNÇÃO LerImagemEmEscalaDeCinza(caminhoImagem)
+        ABRIR arquivo caminhoImagem EM MODO LEITURA_BINARIA
+        SE arquivo NÃO EXISTE ENTAO
+            RETORNAR ERRO "Arquivo não encontrado"
+        FIM SE
+
+        // Ler os dados binários da imagem
+        imagem = LER_DADOS_DO_ARQUIVO(arquivo)
+
+        // Converter imagem para matriz de pixels em tons de cinza
+        matrizCinza = ConverterParaEscalaDeCinza(imagem)
+
+        RETORNAR matrizCinza
+    FIM FUNÇÃO
+
+    // Carregar as imagens esquerda e direita em escala de cinza
+    imgLeft  <- LerImagemEmEscalaDeCinza("image_l.png")
+    imgRight <- LerImagemEmEscalaDeCinza("image_r.png")
+
+FIM
+
+
+# Verificar se as imagens foram carregadas corretamente
+if imgLeft is None:
+    print("Erro ao carregar 'image_l.png'. Verifique o caminho do arquivo.")
+    exit()
+
+if imgRight is None:
+    print("Erro ao carregar 'image_r.png'. Verifique o caminho do arquivo.")
+    exit() 
+
+
+INICIO
+
+    // Função para detectar keypoints e calcular descritores usando SIFT manualmente
+    FUNÇÃO DetectarKeypointsEComputarDescritores(imagem)
+        keypoints <- LISTA_VAZIA
+        descritores <- LISTA_VAZIA
+
+        // Aplicar detecção de bordas (exemplo: filtro Laplaciano ou Canny)
+        bordas <- DetectarBordas(imagem)
+
+        // Percorrer a imagem em busca de características distintas
+        PARA cada pixel EM imagem
+            SE pixel for um ponto de borda E possuir textura distinta ENTAO
+                keypoint <- CriarEstruturaKeypoint(coordenadaX, coordenadaY, escala, orientação)
+                ADICIONAR keypoint A keypoints
+        FIM PARA
+
+        // Calcular descritores para cada keypoint
+        PARA cada keypoint EM keypoints
+            descritor <- GerarDescritor(keypoint, imagem)
+            ADICIONAR descritor A descritores
+        FIM PARA
+
+        RETORNAR keypoints, descritores
+    FIM FUNÇÃO
+
+    // Criar detector SIFT (simulado)
+    sift <- CriarDetectorSIFT()
+
+    // Detectar keypoints e calcular descritores nas imagens esquerda e direita
+    keyPointsLeft, descriptorsLeft <- DetectarKeypointsEComputarDescritores(imgLeft)
+    keyPointsRight, descriptorsRight <- DetectarKeypointsEComputarDescritores(imgRight)
+
+FIM
+
+
+
+INICIO
+
+    // Definir constantes para o índice do FLANN
+    FLANN_INDEX_KDTREE <- 0
+
+    // Definir parâmetros do índice (utilizando KD-Tree)
+    indexParams <- CriarDicionario()
+    indexParams["algorithm"] <- FLANN_INDEX_KDTREE
+    indexParams["trees"] <- 5
+
+    // Definir parâmetros de busca (controle de verificações)
+    searchParams <- CriarDicionario()
+    searchParams["checks"] <- 50
+
+    // Criar o objeto FLANN matcher manualmente
+    FUNÇÃO CriarFLANNMatcher(indexParams, searchParams)
+        matcher <- EstruturaFLANNMatcher()
+
+        // Configurar a estrutura KD-Tree para indexação rápida
+        SE indexParams["algorithm"] == FLANN_INDEX_KDTREE ENTAO
+            matcher.index <- CriarKDTree(indexParams["trees"])
+        FIM SE
+
+        // Configurar os parâmetros de busca
+        matcher.searchChecks <- searchParams["checks"]
+
+        RETORNAR matcher
+    FIM FUNÇÃO
+
+    // Inicializar o FLANN Matcher
+    flann <- CriarFLANNMatcher(indexParams, searchParams)
+
+FIM
+INICIO
+
+    // Função para encontrar os K vizinhos mais próximos entre dois conjuntos de descritores
+    FUNÇÃO KNNMatch(flann, descritores1, descritores2, k)
+        correspondencias <- LISTA_VAZIA
+
+        // Para cada descritor na primeira imagem
+        PARA CADA descritor1 EM descritores1
+            vizinhos <- LISTA_VAZIA
+
+            // Para cada descritor na segunda imagem
+            PARA CADA descritor2 EM descritores2
+                // Calcular a distância entre os descritores (exemplo: distância Euclidiana)
+                distancia <- CalcularDistancia(descritor1, descritor2)
+
+                // Adicionar à lista de vizinhos
+                ADICIONAR (distancia, descritor2) A vizinhos
+            FIM PARA
+
+            // Ordenar vizinhos pela menor distância
+            ORDENAR vizinhos POR distancia ASCENDENTE
+
+            // Selecionar os K vizinhos mais próximos
+            melhoresVizinhos <- PRIMEIROS_K_ELEMENTOS(vizinhos, k)
+
+            // Adicionar ao conjunto final de correspondências
+            ADICIONAR melhoresVizinhos A correspondencias
+        FIM PARA
+
+        RETORNAR correspondencias
+    FIM FUNÇÃO
+
+    // Encontrar correspondências entre os descritores das imagens esquerda e direita
+    matches <- KNNMatch(flann, descriptorsLeft, descriptorsRight, 2)
+
+FIM
+
+
+
+INICIO
+
+    // Listas para armazenar as correspondências filtradas e pontos correspondentes
+    goodMatches <- LISTA_VAZIA
+    ptsLeft <- LISTA_VAZIA
+    ptsRight <- LISTA_VAZIA
+
+    // Aplicar o teste da razão (Lowe’s ratio test)
+    PARA CADA (m, n) EM matches
+        SE m.distancia < 0.8 * n.distancia ENTAO
+            ADICIONAR [m] A goodMatches
+            ADICIONAR keyPointsLeft[m.indiceConsulta].ponto A ptsLeft
+            ADICIONAR keyPointsRight[m.indiceTreinamento].ponto A ptsRight
+        FIM SE
+    FIM PARA
+
+FIM
+
+
+
+INICIO
+
+    // Converter listas de pontos para inteiros (coordenadas discretas)
+    ptsLeft <- ConverterParaInteiros(ptsLeft)
+    ptsRight <- ConverterParaInteiros(ptsRight)
+
+    // Calcular a matriz fundamental usando o método LMEDS (Least Median of Squares)
+    (F, mask) <- CalcularMatrizFundamental(ptsLeft, ptsRight, metodo="LMEDS")
+
+    // Selecionar apenas os pontos inliers (aceitos pelo modelo)
+    ptsLeftInliers <- LISTA_VAZIA
+    ptsRightInliers <- LISTA_VAZIA
+
+    PARA i DE 0 ATÉ TAMANHO(mask) - 1
+        SE mask[i] == 1 ENTAO
+            ADICIONAR ptsLeft[i] A ptsLeftInliers
+            ADICIONAR ptsRight[i] A ptsRightInliers
+        FIM SE
+    FIM PARA
+
+    // Atualizar as listas com os pontos inliers
+    ptsLeft <- ptsLeftInliers
+    ptsRight <- ptsRightInliers
+
+FIM
+
+
+
+
+FUNÇÃO drawlines(img1, img2, linhas, pts1, pts2)
+    // Obter dimensões da primeira imagem
+    (r, c) <- ObterDimensões(img1)
+
+    // Converter imagens para formato colorido (RGB)
+    img1 <- ConverterParaColorido(img1)
+    img2 <- ConverterParaColorido(img2)
+
+    // Para cada linha e seus pontos correspondentes
+    PARA CADA (linha, pt1, pt2) EM zip(linhas, pts1, pts2)
+        // Gerar uma cor aleatória
+        cor <- GerarCorAleatoria()
+
+        // Calcular as coordenadas de interseção da linha com as bordas da imagem
+        (x0, y0) <- CalcularPontoDeInterseção(0, linha)  // Interseção com a borda esquerda
+        (x1, y1) <- CalcularPontoDeInterseção(c, linha)  // Interseção com a borda direita
+
+        // Desenhar a linha na imagem 1
+        img1 <- DesenharLinha(img1, (x0, y0), (x1, y1), cor, 1)
+
+        // Desenhar o ponto de correspondência na imagem 1
+        img1 <- DesenharCirculo(img1, pt1, 5, cor, -1)
+
+        // Desenhar o ponto de correspondência na imagem 2
+        img2 <- DesenharCirculo(img2, pt2, 5, cor, -1)
+    FIM PARA
+
+    RETORNAR img1, img2
+FIM FUNÇÃO
+
+// Funções auxiliares
+FUNÇÃO GerarCorAleatoria()
+    cor <- (Aleatorio(0, 255), Aleatorio(0, 255), Aleatorio(0, 255))
+    RETORNAR cor
+FIM FUNÇÃO
+
+FUNÇÃO CalcularPontoDeInterseção(x, linha)
+    (x0, y0) <- (x, -linha[2] / linha[1])
+    RETORNAR (x0, y0)
+FIM FUNÇÃO
+
+FUNÇÃO DesenharLinha(imagem, ponto1, ponto2, cor, espessura)
+    // Função fictícia para desenhar uma linha
+    RETORNAR imagem
+FIM FUNÇÃO
+
+FUNÇÃO DesenharCirculo(imagem, ponto, raio, cor, preenchimento)
+    // Função fictícia para desenhar um círculo
+    RETORNAR imagem
+FIM FUNÇÃO
+
+
+
+
+INICIO
+
+    // Calcular as linhas epipolares correspondentes na imagem da esquerda
+    linhasEsquerda <- CalcularLinhasEpipolares(ptsDireita, 2, F)
+
+    // Redimensionar as linhas para garantir o formato correto
+    linhasEsquerda <- Redimensionar(linhasEsquerda, -1, 3)
+
+    // Desenhar as linhas epipolares nas imagens
+    (img5, img6) <- drawlines(imgEsquerda, imgDireita, linhasEsquerda, ptsEsquerda, ptsDireita)
+
+FIM
+
+// Funções auxiliares
+FUNÇÃO CalcularLinhasEpipolares(pontosDireita, imagemIdx, matrizFundamental)
+    // Implementar o cálculo das linhas epipolares usando a matriz fundamental
+    linhasEpipolares <- FunçãoFictíciaCalcularEpilinas(pontosDireita, imagemIdx, matrizFundamental)
+    RETORNAR linhasEpipolares
+FIM FUNÇÃO
+
+FUNÇÃO Redimensionar(matriz, novaDimensao1, novaDimensao2)
+    // Implementar redimensionamento da matriz para as novas dimensões
+    matrizRedimensionada <- FunçãoFictíciaRedimensionar(matriz, novaDimensao1, novaDimensao2)
+    RETORNAR matrizRedimensionada
+FIM FUNÇÃO
+
+
+
+
+
+INICIO
+
+    // Calcular as linhas epipolares correspondentes na imagem da direita
+    linhasDireita <- CalcularLinhasEpipolares(ptsEsquerda, 1, F)
+
+    // Redimensionar as linhas para garantir o formato correto
+    linhasDireita <- Redimensionar(linhasDireita, -1, 3)
+
+    // Desenhar as linhas epipolares nas imagens
+    (img3, img4) <- drawlines(imgDireita, imgEsquerda, linhasDireita, ptsDireita, ptsEsquerda)
+
+FIM
+
+// Funções auxiliares
+FUNÇÃO CalcularLinhasEpipolares(pontosEsquerda, imagemIdx, matrizFundamental)
+    // Implementar o cálculo das linhas epipolares usando a matriz fundamental
+    linhasEpipolares <- FunçãoFictíciaCalcularEpilinas(pontosEsquerda, imagemIdx, matrizFundamental)
+    RETORNAR linhasEpipolares
+FIM FUNÇÃO
+
+FUNÇÃO Redimensionar(matriz, novaDimensao1, novaDimensao2)
+    // Implementar redimensionamento da matriz para as novas dimensões
+    matrizRedimensionada <- FunçãoFictíciaRedimensionar(matriz, novaDimensao1, novaDimensao2)
+    RETORNAR matrizRedimensionada
+FIM FUNÇÃO
+
+
+
+
+
