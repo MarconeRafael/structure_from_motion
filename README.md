@@ -83,7 +83,168 @@ python3 extract_points.py
 - **`vhdl_sfm_results.png`**: Imagens com linhas epipolares
 - **`vhdl_3d_reconstruction.png`**: Nuvem de pontos 3D
 
-## 🔍 Especificações Técnicas
+## � Tutorial de Uso Completo
+
+### 🎯 **Cenário 1: Teste Rápido (Dados Existentes)**
+
+Execute o pipeline completo com as imagens já incluídas:
+
+```bash
+# 1. Compilar e simular o VHDL
+./run.sh
+
+# 2. Visualizar resultados
+python3 visualize_vhdl_results.py
+```
+
+**Saída esperada:**
+```
+Compilando pacotes base...
+Compilando módulos principais...
+Compilando testbench...
+Elaborando design...
+Executando simulação...
+tb/tb_top.vhd:142:9:@1455ns:(report note): Teste SfM completo executado com sucesso!
+tb/tb_top.vhd:143:9:@1455ns:(report note): Pipeline executado: Fundamental -> Essential -> Pose -> Triangulation
+Simulação concluída. Arquivo wave.vcd gerado.
+```
+
+### 🔄 **Cenário 2: Teste com Novas Imagens**
+
+Para usar suas próprias imagens:
+
+```bash
+# 1. Substitua as imagens (formato JPEG, recomendado 640x480)
+cp sua_imagem1.jpg images/img1.jpeg
+cp sua_imagem2.jpg images/img2.jpeg
+
+# 2. Extrair novos pontos correspondentes
+python3 extract_points.py
+
+# 3. Atualizar testbench (copiar do arquivo gerado)
+# O script gera vhdl_points_data.txt - copie o conteúdo para tb/tb_top.vhd
+
+# 4. Executar simulação
+./run.sh
+
+# 5. Visualizar resultados
+python3 visualize_vhdl_results.py
+```
+
+### 🔧 **Cenário 3: Desenvolvimento e Debug**
+
+Para desenvolvedores que querem modificar o código:
+
+```bash
+# 1. Compilar apenas um módulo específico
+ghdl -a --workdir=work src/fundamental_matrix.vhd
+
+# 2. Testar módulo isolado
+ghdl -a --workdir=work tb/tb_fundamental.vhd
+ghdl -e --workdir=work tb_fundamental  
+ghdl -r --workdir=work tb_fundamental --vcd=fundamental.vcd
+
+# 3. Analisar sinais com GTKWave
+gtkwave wave.vcd
+
+# 4. Limpar arquivos de compilação
+rm -rf work/ *.o tb_top e~*
+```
+
+### 📊 **Cenário 4: Análise Detalhada**
+
+Para análise aprofundada dos resultados:
+
+```bash
+# 1. Executar com tempo de simulação estendido
+ghdl -r --workdir=work tb_top --vcd=wave.vcd --stop-time=50us
+
+# 2. Gerar dados para análise Python
+python3 extract_points.py
+python3 generate_test_data.py
+
+# 3. Comparar resultados VHDL vs OpenCV
+python3 -c "
+import numpy as np
+# Carregar dados VHDL
+vhdl_data = np.loadtxt('vhdl_points_data.txt')
+print('Análise de precisão VHDL vs Python...')
+"
+
+# 4. Verificar recursos utilizados
+echo 'Estimando recursos FPGA...'
+grep -r 'signal.*:' src/ | wc -l  # Sinais internos
+grep -r 'process' src/ | wc -l    # Processos
+```
+
+### 🐛 **Cenário 5: Troubleshooting**
+
+Resolução de problemas comuns:
+
+```bash
+# Problema: Erro de compilação VHDL
+# Solução:
+ghdl --clean
+rm -rf work/
+mkdir work
+./run.sh
+
+# Problema: Python não encontra OpenCV
+# Solução:
+pip3 install --user opencv-python numpy matplotlib
+
+# Problema: Imagens não carregam
+# Solução:
+file images/*.jpeg  # Verificar se são JPEGs válidos
+ls -la images/      # Verificar permissões
+
+# Problema: Resultados inconsistentes  
+# Solução:
+python3 extract_points.py  # Re-extrair pontos
+./run.sh                   # Re-simular
+python3 visualize_vhdl_results.py  # Re-visualizar
+```
+
+### 📈 **Verificação de Resultados**
+
+Como validar se tudo está funcionando:
+
+```bash
+# 1. Verificar arquivos gerados
+ls -la *.vcd *.png *.txt
+
+# 2. Confirmar simulação bem-sucedida
+grep "sucesso" <(./run.sh 2>&1)
+
+# 3. Validar pontos extraídos
+python3 -c "
+import cv2
+img = cv2.imread('images/img1.jpeg')
+print(f'Imagem carregada: {img.shape if img is not None else \"ERRO\"}')
+"
+
+# 4. Verificar consistência dos dados
+wc -l vhdl_points_data.txt  # Deve ter ~35 linhas (8 pontos + comentários)
+```
+
+### 🎮 **Comandos Úteis de Teste**
+
+```bash
+# Teste completo automatizado
+./run.sh && python3 visualize_vhdl_results.py && echo "✅ Tudo OK!"
+
+# Benchmark de tempo
+time ./run.sh
+
+# Verificar saúde do projeto
+find . -name "*.vhd" -exec ghdl -s {} \; 2>&1 | grep -i error
+
+# Estatísticas do código
+echo "Linhas de VHDL: $(find src/ -name "*.vhd" -exec wc -l {} + | tail -1)"
+echo "Linhas de Python: $(find . -name "*.py" -exec wc -l {} + | tail -1)"
+```
+
+## �🔍 Especificações Técnicas
 
 ### 💾 Formato de Dados
 - **Q15.16**: 32 bits de ponto fixo
@@ -166,16 +327,9 @@ Imagens Reais → [Extração SIFT Python] → Pontos Correspondentes
 
 ## 📄 Licença
 
-MIT License - veja [LICENSE](LICENSE) para detalhes.
+NO License - veja [LICENSE](LICENSE) para detalhes.
 
-## 🤝 Contribuição
 
-Contribuições são bem-vindas! Por favor:
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças  
-4. Push para a branch
-5. Abra um Pull Request
 
 ## 📚 Referências
 
@@ -186,6 +340,3 @@ Contribuições são bem-vindas! Por favor:
 
 ---
 
-**🚀 Status**: Projeto Completo e Funcional  
-**📅 Última Atualização**: Outubro 2025  
-**🏷️ Versão**: 1.0.0
