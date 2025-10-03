@@ -8,6 +8,6 @@ use work.algebra_pkg.all; -- se necessário
 
 
 package projective_pkg is
-  function Skew(v: Vec3) return Mat3;  -- retorna [v]_x (skew-sym)
-  -- Outras operações (por ex., converter vetores para matriz P)
+  -- Função Skew já implementada em algebra_pkg
+  -- Este pacote está reservado para futuras expansões
 end projective_pkg;

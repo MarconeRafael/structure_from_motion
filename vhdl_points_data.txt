@@ -1,0 +1,51 @@
+        -- Dados extraídos das imagens locais img1.jpeg e img2.jpeg
+        -- Pontos correspondentes encontrados via SIFT + RANSAC
+
+        -- Ponto 1
+        pts1_in(0, 0) <= to_signed(23838910, 32);  -- x1 = 363.8
+        pts1_in(0, 1) <= to_signed(9052917, 32);  -- y1 = 138.1
+        pts2_in(0, 0) <= to_signed(33180358, 32);  -- x2 = 506.3
+        pts2_in(0, 1) <= to_signed(8607561, 32);  -- y2 = 131.3
+
+        -- Ponto 2
+        pts1_in(1, 0) <= to_signed(17617284, 32);  -- x1 = 268.8
+        pts1_in(1, 1) <= to_signed(8454614, 32);  -- y1 = 129.0
+        pts2_in(1, 0) <= to_signed(32932746, 32);  -- x2 = 502.5
+        pts2_in(1, 1) <= to_signed(9047733, 32);  -- y2 = 138.1
+
+        -- Ponto 3
+        pts1_in(2, 0) <= to_signed(12089541, 32);  -- x1 = 184.5
+        pts1_in(2, 1) <= to_signed(14209715, 32);  -- y1 = 216.8
+        pts2_in(2, 0) <= to_signed(15566883, 32);  -- x2 = 237.5
+        pts2_in(2, 1) <= to_signed(14818845, 32);  -- y2 = 226.1
+
+        -- Ponto 4
+        pts1_in(3, 0) <= to_signed(20840370, 32);  -- x1 = 318.0
+        pts1_in(3, 1) <= to_signed(18874794, 32);  -- y1 = 288.0
+        pts2_in(3, 0) <= to_signed(25352796, 32);  -- x2 = 386.9
+        pts2_in(3, 1) <= to_signed(21515964, 32);  -- y2 = 328.3
+
+        -- Ponto 5
+        pts1_in(4, 0) <= to_signed(9893850, 32);  -- x1 = 151.0
+        pts1_in(4, 1) <= to_signed(8495683, 32);  -- y1 = 129.6
+        pts2_in(4, 0) <= to_signed(14241771, 32);  -- x2 = 217.3
+        pts2_in(4, 1) <= to_signed(9842917, 32);  -- y2 = 150.2
+
+        -- Ponto 6
+        pts1_in(5, 0) <= to_signed(10133454, 32);  -- x1 = 154.6
+        pts1_in(5, 1) <= to_signed(9372734, 32);  -- y1 = 143.0
+        pts2_in(5, 0) <= to_signed(14396896, 32);  -- x2 = 219.7
+        pts2_in(5, 1) <= to_signed(10562664, 32);  -- y2 = 161.2
+
+        -- Ponto 7
+        pts1_in(6, 0) <= to_signed(7987191, 32);  -- x1 = 121.9
+        pts1_in(6, 1) <= to_signed(14489305, 32);  -- y1 = 221.1
+        pts2_in(6, 0) <= to_signed(12799177, 32);  -- x2 = 195.3
+        pts2_in(6, 1) <= to_signed(14697239, 32);  -- y2 = 224.3
+
+        -- Ponto 8
+        pts1_in(7, 0) <= to_signed(13031749, 32);  -- x1 = 198.8
+        pts1_in(7, 1) <= to_signed(8888773, 32);  -- y1 = 135.6
+        pts2_in(7, 0) <= to_signed(16657966, 32);  -- x2 = 254.2
+        pts2_in(7, 1) <= to_signed(9947206, 32);  -- y2 = 151.8
+
