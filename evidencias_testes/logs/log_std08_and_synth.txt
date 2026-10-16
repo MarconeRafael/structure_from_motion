@@ -1,0 +1,55 @@
+analyse src/fixed_pkg.vhd exit=0
+analyse src/algebra_pkg.vhd exit=0
+analyse src/algebra_pkg_body.vhd exit=0
+analyse src/projective_pkg.vhd exit=0
+analyse src/fundamental_matrix.vhd exit=0
+analyse src/essential_matrix.vhd exit=0
+analyse src/pose_extraction.vhd exit=0
+analyse src/triangulation.vhd exit=0
+analyse src/top.vhd exit=0
+analyse tb/tb_top.vhd exit=0
+elab exit=0
+tb/tb_top.vhd:142:9:@1455ns:(report note): Teste SfM completo executado com sucesso!
+tb/tb_top.vhd:143:9:@1455ns:(report note): Pipeline executado: Fundamental -> Essential -> Pose -> Triangulation
+ghdl:info: simulation stopped by --stop-time @10us
+run exit=0
+--- synth EssentialMatrixCalculator
+synth EssentialMatrixCalculator exit=0 size=108420
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;
+--- synth FundamentalMatrixCalculator
+synth FundamentalMatrixCalculator exit=0 size=60512
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;
+--- synth PoseExtraction
+synth PoseExtraction exit=0 size=138978
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;
+--- synth Triangulation
+synth Triangulation exit=0 size=542220
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;
+--- synth SfM_Top
+synth SfM_Top exit=0 size=849486
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;

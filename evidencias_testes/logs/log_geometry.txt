@@ -1,0 +1,67 @@
+### SIFT por imagem (processamento individual)
+img1: keypoints=1199 descritores=(1199, 128) tempo=0.053 s
+img2: keypoints=1494 descritores=(1494, 128) tempo=0.047 s
+### Correspondencia conjunta (FLANN kd-tree 5, checks=50, knn k=2)
+knnMatch: pares=1199 tempo=0.067 s
+razao 0.7: aceitas=137  (11.43% dos keypoints img1; 11.43% dos pares knn)
+razao 0.8: aceitas=218  (18.18% dos keypoints img1; 18.18% dos pares knn)
+### RANSAC (cv2.FM_RANSAC, parametros padrao do OpenCV) repetido 10x sobre as correspondencias da razao 0.7
+inliers por execucao: [129, 129, 129, 129, 129, 129, 129, 129, 129, 129] | taxa de inliers = 94.16% (media)
+F_ransac (normalizada F[2,2]=1?):
+ [[ 0.000001 -0.000011  0.001101]
+ [ 0.000033 -0.000004 -0.015712]
+ [-0.006158  0.012568  1.      ]] 
+posto (valores singulares): [1.000222 0.000205 0.      ]
+Erro de Sampson (px) nos 129 inliers sob F_ransac: media=0.323 mediana=0.223 max=1.806
+Erro de Sampson (px) nos 8 outliers: media=43.838 mediana=29.885 max=108.029
+Deslocamento 2D entre imagens (px), inliers: media=67.985 mediana=63.840 max=233.871
+### Teste de planaridade (homografia RANSAC 3 px) sobre os inliers
+inliers de homografia: 95 de 129 (73.6%)
+### Pontos do testbench (tb_top.vhd / visualize_vhdl_results.py)
+distancia (soma dos dois pontos, px) ao inlier SIFT mais proximo, por ponto: [0.1  0.06 0.07 0.05 0.06 0.06 0.07 0.08]
+Erro de Sampson (px) dos 8 pontos sob F_ransac(129 inliers): media=0.238 mediana=0.141 max=0.614
+Erro de Sampson (px) dos 8 pontos sob F_8pontos (ajuste exato aos proprios pontos, pouco informativo): media=0.508 mediana=0.049 max=3.300
+Erro de Sampson (px) dos 129 inliers sob F_8pontos (estimada so com os 8 pontos): media=1.202 mediana=0.670 max=8.713
+### F constante do VHDL (SOLVE_SVD) como referencia numerica
+F_vhdl:
+ [[0.5      0.25     0.125   ]
+ [0.0625   0.03125  0.015625]
+ [0.007812 0.003906 0.001953]] 
+valores singulares: [0.577349 0.       0.      ]
+Erro de Sampson (px) dos 8 pontos sob F_vhdl: media=210.616 mediana=182.539 max=310.372
+Erro de Sampson (px) dos 129 inliers sob F_vhdl: media=208.296 mediana=202.362 max=361.309
+### E = K^T F K : emulacao inteira de Mat3Mul vs simulacao GHDL (probe isolado de EssentialMatrixCalculator)
+E (GHDL, inteiros Q15.16):
+ [[  441745408   220872704 -1016225792]
+ [ 1128960000   564480000   946713600]
+ [ 1726421504 -1284272896   754397312]]
+emulacao Python == GHDL (9/9 elementos): True | elementos iguais: 9
+E ideal em ponto flutuante (K^T F K):
+ [[137812.5       68906.25     115565.625   ]
+ [ 17226.5625     8613.28125   14445.703125]
+ [ 91879.101562  45939.550781  77047.189453]]
+E do GHDL convertido para real:
+ [[  6740.5        3370.25     -15506.375   ]
+ [ 17226.5625     8613.28125   14445.703125]
+ [ 26343.101562 -19596.449219  11511.189453]]
+elementos |E_ideal| > 32767.99998 (fora da faixa Q15.16): 6 de 9
+### OpenCV: pose e triangulacao (mesmo procedimento de visualize_vhdl_results.py) e comparacao com X3D do VHDL
+recoverPose(8 pontos): pontos com cheirality=7 de 8 | angulo de rotacao=15.94 graus | t=[-0.403315  0.173112 -0.898537]
+angulo geodesico entre R_opencv e W (R que o codigo VHDL produziria se os sinais fossem validos): 90.52 graus
+OpenCV Z (camera 1) dos 8 pontos: [ 3.602 -0.559  3.005  2.86   3.352  3.299  3.894  2.814] | Z>0 em: 7 de 8
+erro de reprojecao OpenCV (px) img1: media=6.829 mediana=5.847 max=16.918 | img2: media=8.839 mediana=7.860 max=25.319
+X3D do VHDL (8 primeiros, Q15.16 inteiros):
+ [[28509634  8830239    65536    65536]
+ [25275015  8751173    65536    65536]
+ [13828212 14514280    65536    65536]
+ [23096583 20195379    65536    65536]
+ [12067810  9169300    65536    65536]
+ [12265175  9967699    65536    65536]
+ [10393184 14593272    65536    65536]
+ [14844857  9417989    65536    65536]]
+X,Y do VHDL (reais): [[435.02, 134.74], [385.67, 133.53], [211.0, 221.47]] ... | Z do VHDL: [1.]
+X,Y do VHDL == media dos pontos de pixel dos dois pares (tol 0.1 px): True
+erro de reprojecao (px) dos X3D do VHDL em img1 com P1=K[I|0]: media=174117.946 mediana=152178.581 max=245748.852
+### Quantizacao Q15.16 dos pontos (int(v*65536), como nos scripts)
+erro max de conversao (px) em 516 coordenadas: 7.629e-06 (limite teorico 2^-16 = 1.526e-05)
+maior coordenada |v| = 525.0 ; limite Q15.16 = 32767.99998

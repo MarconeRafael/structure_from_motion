@@ -1,0 +1,11 @@
+extract_points run=1 exit=0 elapsed_s=0.81 sha256=B3594D132472 bytes=2418
+extract_points run=2 exit=0 elapsed_s=0.52 sha256=05227A749D17 bytes=2419
+extract_points run=3 exit=0 elapsed_s=0.49 sha256=01B3EE8145E9 bytes=2419
+extract_points run=4 exit=0 elapsed_s=0.57 sha256=AC786FB6F07D bytes=2419
+extract_points run=5 exit=0 elapsed_s=0.57 sha256=B8120C560DD4 bytes=2419
+generate_test_data run=1 exit=0 elapsed_s=0.38 sha_txt=C3024FAB3300 sha_npz=82FCA4560D9C
+generate_test_data run=2 exit=0 elapsed_s=0.33 sha_txt=C3024FAB3300 sha_npz=82FCA4560D9C
+orig tbdata sha=F0FB1C6F838E orig npz sha=6D1B5C8EECFB
+visualize run=1 exit=0 elapsed_s=4.75 sfm_png=5497386 3d_png=348562
+visualize run=2 exit=0 elapsed_s=4.2 sfm_png=5497386 3d_png=348562
+orig png sizes: 5590932 413623

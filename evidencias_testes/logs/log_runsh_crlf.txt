@@ -1,0 +1,37 @@
+./run.sh: line 2: $'\r': command not found
+Compilando pacotes base...
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+./run.sh: line 9: $'\r': command not found
+Compilando módulos principais...
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+./run.sh: line 16: $'\r': command not found
+Compilando testbench...
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+./run.sh: line 19: $'\r': command not found
+Elaborando design...
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+./run.sh: line 22: $'\r': command not found
+Executando simulação...
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: cannot execute binary file: Exec format error
+/mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/shim/ghdl: line 2: /mnt/c/Users/Marcone/AppData/Local/Temp/sfm_audit/ghdl/bin/ghdl.exe: Success
+./run.sh: line 25: $'\r': command not found
+Simulação concluída. Arquivo wave.vcd gerado.
+exit=0

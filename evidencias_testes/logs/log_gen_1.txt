@@ -1,0 +1,36 @@
+=== Gerador de Dados de Teste para Pipeline VHDL SfM ===
+
+Gerando pontos correspondentes simulados...
+Pontos gerados:
+  - Imagem 1: 8 pontos
+  - Imagem 2: 8 pontos
+  - Matriz K: 525.0x525.0 focal length, centro (320.0, 240.0)
+  - Disparidade m├®dia: 7.72 ┬▒ 3.56 pixels
+
+C├│digo VHDL gerado e salvo em 'vhdl_testbench_data.txt'
+
+Pr├®-visualiza├º├úo do c├│digo VHDL:
+============================================================
+        -- Dados simulados de pontos correspondentes
+        -- Representam um par est├®reo com movimento lateral da c├ómera
+        
+        -- Inicializar matriz de calibra├º├úo K (par├ómetros t├¡picos VGA)
+        K_matrix <= (others => (others => (others => '0')));
+        K_matrix(0,0) <= to_signed(34406400, 32);  -- fx = 525.0
+        K_matrix(1,1) <= to_signed(34406400, 32);  -- fy = 525.0
+        K_matrix(2,2) <= to_signed(65536, 32);  -- 1.0
+        K_matrix(0,2) <= to_signed(20971520, 32);  -- cx = 320.0
+        K_matrix(1,2) <= to_signed(15728640, 32);  -- cy = 240.0
+
+        -- Pontos correspondentes simulados
+        -- Ponto 1
+        pts1_in(0, 0) <= to_signed(16531565, 32);  -- x1 = 252.3
+        pts1_in(0, 1) <= to_signed(26953084, 32);  -- y1 = 411.3
+        pts2_in(0, 0) <= to_signed(16795943, 32);  -- x2 = 256.3
+        pts2_in(0, 1) <= to_signed(26973984, 32);  -- y2 = 411.6
+
+        -- Ponto 2
+        pts1_in(1, 0) <= to_signed(8797358, 32);  -- x1 = 134.2
+        pts1_...
+
+Dados Python salvos em 'simulated_data.npz' para an├ílise posterior

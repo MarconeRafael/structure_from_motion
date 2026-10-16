@@ -1,0 +1,27 @@
+== img1.jpeg
+  tamanho_bytes: 66999
+  sha256: cff9731c233298261522d399a2196a1e4a3dc7fbae6dff090e3a948d83c6e13d
+  PIL formato: JPEG modo: RGB size(WxH): (640, 480) info_keys: ['dpi', 'jfif', 'jfif_density', 'jfif_unit', 'jfif_version']
+  dpi: (96, 96) jfif: 257 progressive: None
+  EXIF tags: nenhum
+  tabelas_quantizacao: 2
+  cv2 BGR shape: (480, 640, 3) dtype: uint8 | gray shape: (480, 640)
+  gray min/max/mean/std: 0 255 55.39 48.29
+  var_Laplaciano (nitidez): 682.56
+  max|B-G|, max|G-R| (0 => cinza puro): 60 95
+== img2.jpeg
+  tamanho_bytes: 61545
+  sha256: 180f201f94c07ac76e98fc447a4cdb2924699c29faa8ba2a50bbd903ec0cde66
+  PIL formato: JPEG modo: RGB size(WxH): (640, 480) info_keys: ['dpi', 'jfif', 'jfif_density', 'jfif_unit', 'jfif_version']
+  dpi: (96, 96) jfif: 257 progressive: None
+  EXIF tags: nenhum
+  tabelas_quantizacao: 2
+  cv2 BGR shape: (480, 640, 3) dtype: uint8 | gray shape: (480, 640)
+  gray min/max/mean/std: 0 250 43.49 48.51
+  var_Laplaciano (nitidez): 437.02
+  max|B-G|, max|G-R| (0 => cinza puro): 82 108
+== comparacao
+  mesmas dimensoes: True
+  MAE pixel a pixel (gray): 44.67
+  correlacao de histogramas: 0.6470
+  opencv 5.0.0

@@ -1,0 +1,12 @@
+pts1 orig==run1: True max|diff|=0 | run1==run2: True
+pts2 orig==run1: True max|diff|=0 | run1==run2: True
+K orig==run1: True max|diff|=0 | run1==run2: True
+tbdata bytes orig/run1: 2911 2905 CRLF orig: True CRLF run1: True
+tbdata iguais apos normalizar CRLF: False
+linhas diferentes: 2 [(1, '        -- Representam um par est\xe9reo com movimento lateral da c\xe2mera', '        -- Representam um par est\ufffdreo com movimento lateral da c\ufffdmera'), (3, '        -- Inicializar matriz de calibra\xe7\xe3o K (par\xe2metros t\xedpicos VGA)', '        -- Inicializar matriz de calibra\ufffd\ufffdo K (par\ufffdmetros t\ufffdpicos VGA)')]
+--- extract_points (5 execucoes)
+1 kp: [] good: None inliers: None n_pts_emitidos: 8
+2 kp: [] good: None inliers: None n_pts_emitidos: 8
+3 kp: [] good: None inliers: None n_pts_emitidos: 8
+4 kp: [] good: None inliers: None n_pts_emitidos: 8
+5 kp: [] good: None inliers: None n_pts_emitidos: 8

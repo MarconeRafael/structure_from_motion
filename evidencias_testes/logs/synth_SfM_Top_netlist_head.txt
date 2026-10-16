@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library work;
+use work.fixed_pkg.all;
+use work.algebra_pkg.all;
+entity SfM_Top is
+  port (
+    clk: in std_logic;
+    reset: in std_logic;
+    start: in std_logic;
+    pts1_in: in FixedArray2D;
+    pts2_in: in FixedArray2D;
+    K_matrix: in Mat3;
+    points_3D: out FixedArray3D;
+    pose_R: out Mat3;
+    pose_t: out Vec3;
+    fundamental_F: out Mat3;
+    essential_E: out Mat3;
+    ready: out std_logic
+  );
+end SfM_Top;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity triangulation_Brtl is
+  port (
+    clk : in std_logic;
+    reset : in std_logic;
+    start : in std_logic;
+    k_in : in std_logic_vector (287 downto 0);
+    r_in : in std_logic_vector (287 downto 0);
+    t_in : in std_logic_vector (95 downto 0);
+    pts1 : in std_logic_vector (6399 downto 0);
+    pts2 : in std_logic_vector (6399 downto 0);
+    x_out : out std_logic_vector (12799 downto 0);
+    done : out std_logic);
+end entity triangulation_Brtl;
+
+architecture rtl of triangulation_Brtl is
+  signal state : std_logic_vector (1 downto 0);
+  signal counter : std_logic_vector (31 downto 0);
+  signal n1995 : std_logic;
+  signal n1997 : std_logic_vector (1 downto 0);
+  signal n1999 : std_logic_vector (31 downto 0);
+  signal n2001 : std_logic;
+  signal n4103 : std_logic;
+  signal n4105 : std_logic;
+  signal n4106 : std_logic_vector (6 downto 0);
+  signal n4108 : std_logic_vector (6 downto 0);
+  signal n4111 : std_logic_vector (6 downto 0);
+  signal n4113 : std_logic_vector (6 downto 0);
+  signal n4116 : std_logic_vector (6 downto 0);
+  signal n4118 : std_logic_vector (6 downto 0);
+  signal n4121 : std_logic_vector (6 downto 0);
+  signal n4123 : std_logic_vector (6 downto 0);
+  signal n4126 : std_logic_vector (31 downto 0);
+  signal n4128 : std_logic_vector (31 downto 0);
+  signal n4129 : std_logic_vector (31 downto 0);

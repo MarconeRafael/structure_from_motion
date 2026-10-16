@@ -1,0 +1,36 @@
+Carregando imagens:
+  - images/img1.jpeg
+  - images/img2.jpeg
+Dimens├Áes das imagens:
+  - Imagem 1: (480, 640)
+  - Imagem 2: (480, 640)
+Keypoints detectados:
+  - Imagem 1: 1199
+  - Imagem 2: 1494
+Correspond├¬ncias v├ílidas encontradas: 137
+Pontos inliers ap├│s RANSAC: 129
+Limitado a 8 pontos para o VHDL
+
+C├│digo VHDL gerado e salvo em 'vhdl_points_data.txt'
+Total de pontos: 8
+
+Pr├®-visualiza├º├úo do c├│digo VHDL:
+============================================================
+        -- Dados extra├¡dos das imagens locais img1.jpeg e img2.jpeg
+        -- Pontos correspondentes encontrados via SIFT + RANSAC
+
+        -- Ponto 1
+        pts1_in(0, 0) <= to_signed(10883975, 32);  -- x1 = 166.1
+        pts1_in(0, 1) <= to_signed(9318634, 32);  -- y1 = 142.2
+        pts2_in(0, 0) <= to_signed(14958180, 32);  -- x2 = 228.2
+        pts2_in(0, 1) <= to_signed(10486785, 32);  -- y2 = 160.0
+
+        -- Ponto 2
+        pts1_in(1, 0) <= to_signed(10741259, 32);  -- x1 = 163.9
+        pts1_in(1, 1) <= to_signed(12165648, 32);  -- y1 = 185.6
+        pts2_in(1, 0) <= to_signed(14677439, 32);  -- x2 = 224.0
+        pts2_in(1, 1) <= to_signed(12912155, 32);  -- y2 = 197.0
+
+        -- Ponto 3
+        pts1_in(2, 0) <= to_signed(9250561, 32);  -- x1 = 141.2
+        pts1_in(2, 1) <= ...

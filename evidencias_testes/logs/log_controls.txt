@@ -1,0 +1,38 @@
+=== controle 1: img1 == img2 ===
+Carregando imagens:
+
+  - images/img1.jpeg
+
+  - images/img2.jpeg
+
+Dimens├Áes das imagens:
+
+  - Imagem 1: (480, 640)
+
+  - Imagem 2: (480, 640)
+
+Keypoints detectados:
+
+  - Imagem 1: 1199
+
+  - Imagem 2: 1199
+
+Correspond├¬ncias v├ílidas encontradas: 1199
+
+Pontos inliers ap├│s RANSAC: 1199
+
+Limitado a 8 pontos para o VHDL
+
+
+
+C├│digo VHDL gerado e salvo em 'vhdl_points_data.txt'
+
+exit=0
+pts1_in(0, 0) <= to_signed(22427848, 32);  -- x1 = 342.2
+pts2_in(0, 0) <= to_signed(22427848, 32);  -- x2 = 342.2
+pts1_in(1, 0) <= to_signed(8915435, 32);  -- x1 = 136.0
+pts2_in(1, 0) <= to_signed(8915435, 32);  -- x2 = 136.0
+=== controle 2: img2 ausente ===
+Erro: images/img2.jpeg n├úo encontrado!
+
+exit=0

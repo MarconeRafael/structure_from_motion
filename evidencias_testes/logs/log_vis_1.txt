@@ -1,0 +1,52 @@
+python.exe : C:\Users\Marcone\AppData\Local\Temp\sfm_audit\repo\visualize_vhdl_
+results.py:177: UserWarning: FigureCanvasAgg is non-interactive, and thus 
+cannot be shown
+No C:\Users\Marcone\AppData\Local\Temp\sfm_audit\t_python_runs.ps1:36 
+caractere:5
++     & $py visualize_vhdl_results.py *> "$d\log_vis_$i.txt"
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\Marcon...cannot be shown 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  plt.show()
+C:\Users\Marcone\AppData\Local\Temp\sfm_audit\repo\visualize_vhdl_results.py:20
+0: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+=== Visualiza├º├úo dos Resultados do Pipeline VHDL SfM ===
+
+Imagens carregadas:
+  - img1.jpeg: (480, 640, 3)
+  - img2.jpeg: (480, 640, 3)
+
+Dados do pipeline VHDL:
+  - Pontos correspondentes: 8
+  - Matriz de calibra├º├úo K: fx=525.0, fy=525.0
+  - Centro da imagem: (320.0, 240.0)
+
+Matriz Fundamental calculada pelo OpenCV:
+[[ 3.32946378e-06 -2.82887825e-05  2.77911202e-03]
+ [ 4.69026059e-05 -1.47052454e-06 -1.83230224e-02]
+ [-8.36260190e-03  1.59228493e-02  1.00000000e+00]]
+
+Matriz Essencial:
+[[ 0.91768345 -7.79709567 -1.54600287]
+ [12.92753076 -0.40531333 -1.92523508]
+ [ 2.07871227  3.42169433  0.3230182 ]]
+
+Pose da c├ómera recuperada:
+Rota├º├úo R:
+[[ 9.61573578e-01 -1.02550311e-02  2.74355770e-01]
+ [ 1.00077757e-02  9.99947274e-01  2.30094532e-03]
+ [-2.74364901e-01  5.33162801e-04  9.61625508e-01]]
+Transla├º├úo t:
+[-0.40331487  0.1731124  -0.89853726]
+
+Resultados salvos:
+  - vhdl_sfm_results.png: Visualiza├º├úo das linhas epipolares
+  - vhdl_3d_reconstruction.png: Reconstru├º├úo 3D
+
+Ô£à Pipeline VHDL Structure from Motion validado com sucesso!
+   - Processamento: 100% VHDL
+   - Visualiza├º├úo: Python/OpenCV
+   - Dados: Imagens reais img1.jpeg e img2.jpeg

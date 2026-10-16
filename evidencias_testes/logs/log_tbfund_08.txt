@@ -1,0 +1,2 @@
+tb/tb_fundamental.vhd:59:9:@1020ns:(report note): SimulaþÒo encerrada com sucesso.
+simulation stopped @1020ns

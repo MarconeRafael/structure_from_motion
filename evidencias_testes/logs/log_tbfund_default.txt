@@ -1,0 +1,13 @@
+ghdl : tb/tb_fundamental.vhd:4:9:error: unit "env" not found in library "std"
+No linha:1 caractere:114
++ ... n.sh) ==="; ghdl -a --workdir=work tb/tb_fundamental.vhd *> "$d\log_t ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (tb/tb_fundament...n library "std" 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+use std.env.stop;  -- necessßrio para encerrar simulaþÒo
+        ^
+tb/tb_fundamental.vhd:10:21:error: entity "tb_fundamental" was not analysed
+architecture sim of tb_fundamental is
+                    ^
