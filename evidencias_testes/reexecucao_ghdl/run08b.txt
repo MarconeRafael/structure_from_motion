@@ -1,0 +1,3 @@
+tb/tb_top.vhd:142:9:@1455ns:(report note): Teste SfM completo executado com sucesso!
+tb/tb_top.vhd:143:9:@1455ns:(report note): Pipeline executado: Fundamental -> Essential -> Pose -> Triangulation
+ghdl:info: simulation stopped by --stop-time @10us

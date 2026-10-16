@@ -181,7 +181,7 @@ Parâmetros: relógio do testbench 10 ns (clk alternando a cada 5 ns); `reset` p
 | Latência `start`→`ready` (simulada) | 1235 | ns | Calculado: 1355 − 120 ns, do VCD ([log_vcd_handshake.txt](evidencias_testes/logs/log_vcd_handshake.txt)); ≈123 ciclos de 10 ns |
 | `fund_ready` / `ess_ready` / `pose_done` / `tri_done` / `ready` | 215 / 235 / 285 / 1335 / 1355 | ns | Medido (VCD) |
 | Duração da triangulação | 1050 | ns | Calculado: 1335 − 285 (100 iterações) |
-| Tempo de parede de `run.sh` (compila+elabora+simula, Git Bash/Windows, GHDL mcode) | 0,785 / 0,723 / 0,729 (média 0,746); 1ª execução sem modificações: 0,818 | s | Medido, 4 execuções |
+| Tempo de parede de `run.sh` (compila+elabora+simula, Git Bash/Windows, GHDL mcode) | 1ª rodada: 0,785 / 0,723 / 0,729 (média 0,746) e 0,818; reexecução: 1,274 / 1,168 / 1,218 (média 1,220) | s | Medido, 7 execuções. A diferença entre rodadas (≈ +64 %) não foi investigada (carga da máquina não foi controlada) |
 | Tempo só de simulação (probe) / do binário ELF em WSL | 0,104 / 0,051 | s | Medido, 1 execução cada |
 | Tamanho de `wave.vcd` (GHDL mcode / binário ELF) | 78 943 / 64 631 | B | Medido; contém só sinais escalares (arrays marcados "not handled") |
 | Pontos 3D observados | posições 0–7 = função dos 8 pontos de entrada; posições 8 e 99 = `(0,0,1,1)` (as posições 9–98 não foram impressas) | — | Medido (`points_3D`) |
@@ -189,7 +189,7 @@ Parâmetros: relógio do testbench 10 ns (clk alternando a cada 5 ns); `reset` p
 | Ângulo entre R do OpenCV e `W` (R que o código geraria com U=V=I) | 90,52 | ° | Calculado; `R` do VHDL **não é observável** (é `'U'`) |
 | Erro de Sampson dos 129 inliers sob a F constante do VHDL (média / máx) | 208,296 / 361,309 | px | Calculado com os valores de `SOLVE_SVD`; F constante tem posto 1 (valores singulares 0,577; 0; 0) |
 | Elementos de E fora da faixa Q15.16 | 6 de 9 | — | Calculado (E ideal) vs medido (GHDL) |
-| Tamanho das netlists `--synth` (VHDL gerado) | Essential 108 420; Fundamental 60 512; Pose 138 978; Triangulation 542 220; SfM_Top 849 486 | B | Medido; **não** é métrica de recursos |
+| Tamanho das netlists `--synth` (VHDL gerado) | Essential 54 209; Fundamental 30 255; Pose 69 488; Triangulation 271 109; SfM_Top 424 742 | B | Medido na reexecução (seção 8.6); **não** é métrica de recursos. Os valores da 1ª execução (108 420; 60 512; 138 978; 542 220; 849 486) estavam inflados ≈ 2× porque o redirecionamento do PowerShell gravou os arquivos em UTF-16; foram substituídos |
 
 ### 7.3 Operacionais (Python)
 
@@ -225,7 +225,7 @@ tb/tb_top.vhd:143:9:@1455ns:(report note): Pipeline executado: Fundamental -> Es
 ghdl:info: simulation stopped by --stop-time @10us
 ```
 
-Nenhum aviso ou erro do GHDL. As três repetições cronometradas geraram `wave.vcd` com o mesmo tamanho (78 943 B); os hashes das execuções 1 e 2 coincidem e o da 3ª difere. A causa dessa diferença (provavelmente o cabeçalho `$date`) **não foi verificada**: o conteúdo dos VCDs não foi comparado entre execuções.
+Nenhum aviso ou erro do GHDL. As três repetições cronometradas da 1ª rodada geraram `wave.vcd` com o mesmo tamanho (78 943 B); os hashes das execuções 1 e 2 coincidem e o da 3ª difere. Nessa rodada o conteúdo não foi comparado; na reexecução (seção 8.6) os três VCDs foram comparados e são idênticos exceto pelo cabeçalho `$date`.
 
 ### 8.2 Saídas de `SfM_Top` em simulação (T12, T13)
 
@@ -254,6 +254,27 @@ Segundo `start` em 1456 ns: `ready` cai em 1465 ns e retorna a `'1'` em 1515 ns,
 - `extract_points.py` (5×): saídas idênticas nas contagens; 5 conteúdos diferentes de `vhdl_points_data.txt` (seleção aleatória sem semente). Controle com img2 = img1: 1199 correspondências e 1199 inliers, exit 0, pontos com x1 = x2 (nenhum aviso de par degenerado).
 - `generate_test_data.py` (2×): determinístico e igual ao `.npz` versionado.
 - `visualize_vhdl_results.py` (2×): `plt.show()` emite aviso de backend não interativo em `Agg` (esperado). Inspeção visual das figuras: as epilinhas passam pelos pontos marcados e convergem para um ponto comum dentro da imagem 1 (epipolo próximo à caixa vermelha); o gráfico 3D mostra P2 com Z < 0 (profundidade negativa, consistente com `7/8` na checagem de cheirality). A mensagem final do script ("Processamento: 100% VHDL", "validado com sucesso") não é sustentada por seu código (T19).
+
+### 8.6 Reexecução completa com GHDL (2026-10-16, 14:48)
+
+Todos os testes de VHDL foram refeitos do zero em uma nova cópia temporária do repositório, com o mesmo GHDL 6.0.0 (mcode) e o script [reexecucao_ghdl.ps1](evidencias_testes/reexecucao_ghdl/reexecucao_ghdl.ps1) (logs e resumo em [reexecucao_ghdl](evidencias_testes/reexecucao_ghdl); GHDL chamado via `cmd /c` para evitar a quebra de linha e a codificação UTF-16 do PowerShell). Fontes `.vhd` e `run.sh` não modificados; os probes de [vhdl_probes](evidencias_testes/vhdl_probes) foram copiados para `tb/` apenas na cópia temporária.
+
+| Verificação | Resultado da reexecução | Igual à 1ª rodada? |
+|---|---|---|
+| `run.sh` ×3 | exit 0 nas 3; mensagens em 1455 ns; `wave.vcd` 78 943 B | Sim |
+| VCDs das 3 execuções, ignorando as 3 primeiras linhas (cabeçalho) | idênticos (1=2 e 2=3, comparação linha a linha); apenas `$date` difere | Novo (não havia sido comparado) |
+| Análise individual (VHDL-93) dos 10 arquivos, elaboração e simulação direta de `tb_top` | 12/12 comandos com exit 0 | Sim |
+| `tb_fundamental` em VHDL-93 | exit 1: `unit "env" not found in library "std"` | Sim |
+| `tb_fundamental` com `--std=08` | 7/7 comandos exit 0; termina em 1020 ns | Sim |
+| Design completo + `tb_top` em `--std=08` | 12/12 exit 0 | Sim |
+| `ghdl --synth` (5 entidades) | 5/5 exit 0; netlists 54 209 / 30 255 / 69 488 / 271 109 / 424 742 B | Contagem de bytes diferente (correção de codificação, ver 7.2) |
+| Handshake no VCD de `tb_top` | `fund_ready` 215, `ess_ready` 235, `pose_done` 285, `tri_done` 1335, `ready` 1355 ns | Sim, idêntico |
+| `SfM_Top`: F / E / R / t | F: 9/9 `'U'`; E: 9/9 `'X'`; R: 9/9 `'U'`; t: 3/3 `'U'` | Sim |
+| `points_3D` com os dados do `tb_top`, pontos reais regenerados e dados simulados | `((x1+x2)/2, (y1+y2)/2, 1, 1)` em 8/8 pontos em cada conjunto; `points_3D(8)` = `(0,0,1,1)` | Sim |
+| `EssentialMatrixCalculator` isolado | 9/9 elementos iguais à emulação inteira; E(0,0) = 441 745 408 (6 740,5 em Q15.16) contra 137 812,5 ideal; 6 de 9 elementos fora da faixa | Sim |
+| Reuso (2º `start`) | `ready` 0 em 1465 ns e 1 em 1515 ns; `pose_done` 1525, `fund_ready` 1555, `tri_done` 2535 ns; F/E/R/t do 2º ciclo continuam `'U'`/`'X'` | Sim, idêntico |
+
+Conclusão da reexecução: nenhum resultado funcional mudou. A única diferença de medição foi o tempo de parede do `run.sh` (maior nesta rodada) e a correção dos tamanhos das netlists. Continuam não executados: GHDL em Linux nativo, backends gcc/llvm, síntese mapeada para FPGA e execução em hardware.
 
 ## 9. Análise
 
@@ -338,5 +359,6 @@ Nota de verificação: o comando `./run.sh` e os scripts Python foram executados
 - `evidencias_testes/logs/` — logs das execuções e [ambiente.txt](evidencias_testes/logs/ambiente.txt).
 - `evidencias_testes/scripts/` — scripts de análise e geração de probes (usados nesta sessão).
 - `evidencias_testes/vhdl_probes/` — testbenches temporários usados nos testes exploratórios.
+- `evidencias_testes/reexecucao_ghdl/` — logs, resumo e script da reexecução completa com GHDL (seção 8.6).
 
 Código-fonte (`src/`, `tb/`, `*.py`, `*.sh`), imagens e demais arquivos do projeto não foram modificados nesta tarefa.

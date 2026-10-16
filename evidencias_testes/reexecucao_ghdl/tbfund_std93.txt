@@ -1,0 +1,6 @@
+tb/tb_fundamental.vhd:4:9:error: unit "env" not found in library "std"
+use std.env.stop;  -- necessário para encerrar simulação
+        ^
+tb/tb_fundamental.vhd:10:21:error: entity "tb_fundamental" was not analysed
+architecture sim of tb_fundamental is
+                    ^

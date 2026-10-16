@@ -1,0 +1,71 @@
+### inicio 2026-10-16T14:48:10
+GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition] |  Compiled with GNAT Version: 15.2.0 |  static elaboration, mcode JIT code generator | Written by Tristan Gingold. |  | Copyright (C) 2003 - 2026 Tristan Gingold. | GHDL is free software, covered by the GNU General Public License.  There is NO | warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+fontes em uso (SHA256 curtos): algebra_pkg.vhd=0CFBB5F8 algebra_pkg_body.vhd=4470EB99 essential_matrix.vhd=68A839E5 fixed_pkg.vhd=9429D01A fundamental_matrix.vhd=65B824C3 pose_extraction.vhd=116EF7EF projective_pkg.vhd=D0C489F9 top.vhd=A169B918 triangulation.vhd=91F6FDE5 tb_top.vhd=8042BE16 tb_fundamental.vhd=D13CEEDE run.sh=A502A290
+### 1) run.sh (Git Bash) x3
+run.sh #1 exit=0 wall=1,274s vcd_bytes=78943
+run.sh #2 exit=0 wall=1,168s vcd_bytes=78943
+run.sh #3 exit=0 wall=1,218s vcd_bytes=78943
+VCD identicos exceto cabecalho: 1==2 True; 2==3 True
+cabecalho \ run1/run2/run3: Fri Oct 16 14:48:11 2026 | Fri Oct 16 14:48:13 2026 | Fri Oct 16 14:48:14 2026
+### 2) compilacao individual (padrao) + simulacao tb_top
+ghdl -a --workdir=work src/fixed_pkg.vhd | exit=0 | 0,081s
+ghdl -a --workdir=work src/algebra_pkg.vhd | exit=0 | 0,078s
+ghdl -a --workdir=work src/algebra_pkg_body.vhd | exit=0 | 0,126s
+ghdl -a --workdir=work src/projective_pkg.vhd | exit=0 | 0,149s
+ghdl -a --workdir=work src/fundamental_matrix.vhd | exit=0 | 0,111s
+ghdl -a --workdir=work src/essential_matrix.vhd | exit=0 | 0,077s
+ghdl -a --workdir=work src/pose_extraction.vhd | exit=0 | 0,114s
+ghdl -a --workdir=work src/triangulation.vhd | exit=0 | 0,081s
+ghdl -a --workdir=work src/top.vhd | exit=0 | 0,072s
+ghdl -a --workdir=work tb/tb_top.vhd | exit=0 | 0,081s
+ghdl -e --workdir=work tb_top | exit=0 | 0,090s
+ghdl -r --workdir=work tb_top --stop-time=10us --vcd=tb_top_direct.vcd | exit=0 | 0,138s
+### 3) tb_fundamental
+ghdl -a --workdir=work tb/tb_fundamental.vhd | exit=1 | 0,052s
+ghdl -a --std=08 --workdir=work08 src/fixed_pkg.vhd | exit=0 | 0,168s
+ghdl -a --std=08 --workdir=work08 src/algebra_pkg.vhd | exit=0 | 0,065s
+ghdl -a --std=08 --workdir=work08 src/algebra_pkg_body.vhd | exit=0 | 0,065s
+ghdl -a --std=08 --workdir=work08 src/fundamental_matrix.vhd | exit=0 | 0,065s
+ghdl -a --std=08 --workdir=work08 tb/tb_fundamental.vhd | exit=0 | 0,068s
+ghdl -e --std=08 --workdir=work08 tb_fundamental | exit=0 | 0,092s
+ghdl -r --std=08 --workdir=work08 tb_fundamental --stop-time=2us | exit=0 | 0,123s
+### 4) VHDL-2008 completo e ghdl --synth
+ghdl -a --std=08 --workdir=work08b src/fixed_pkg.vhd | exit=0 | 0,055s
+ghdl -a --std=08 --workdir=work08b src/algebra_pkg.vhd | exit=0 | 0,062s
+ghdl -a --std=08 --workdir=work08b src/algebra_pkg_body.vhd | exit=0 | 0,066s
+ghdl -a --std=08 --workdir=work08b src/projective_pkg.vhd | exit=0 | 0,063s
+ghdl -a --std=08 --workdir=work08b src/fundamental_matrix.vhd | exit=0 | 0,064s
+ghdl -a --std=08 --workdir=work08b src/essential_matrix.vhd | exit=0 | 0,071s
+ghdl -a --std=08 --workdir=work08b src/pose_extraction.vhd | exit=0 | 0,068s
+ghdl -a --std=08 --workdir=work08b src/triangulation.vhd | exit=0 | 0,106s
+ghdl -a --std=08 --workdir=work08b src/top.vhd | exit=0 | 0,149s
+ghdl -a --std=08 --workdir=work08b tb/tb_top.vhd | exit=0 | 0,084s
+ghdl -e --std=08 --workdir=work08b tb_top | exit=0 | 0,087s
+ghdl -r --std=08 --workdir=work08b tb_top --stop-time=10us | exit=0 | 0,148s
+ghdl --synth --std=08 --workdir=work08b EssentialMatrixCalculator | exit=0 | 0,156s
+   netlist EssentialMatrixCalculator: 54209 bytes
+ghdl --synth --std=08 --workdir=work08b FundamentalMatrixCalculator | exit=0 | 0,109s
+   netlist FundamentalMatrixCalculator: 30255 bytes
+ghdl --synth --std=08 --workdir=work08b PoseExtraction | exit=0 | 0,154s
+   netlist PoseExtraction: 69488 bytes
+ghdl --synth --std=08 --workdir=work08b Triangulation | exit=0 | 0,325s
+   netlist Triangulation: 271109 bytes
+ghdl --synth --std=08 --workdir=work08b SfM_Top | exit=0 | 0,515s
+   netlist SfM_Top: 424742 bytes
+### 5) probes
+ghdl -a --workdir=work tb/tb_probe.vhd | exit=0 | 0,064s
+ghdl -e --workdir=work tb_probe | exit=0 | 0,081s
+ghdl -r --workdir=work tb_probe --stop-time=10us | exit=0 | 0,146s
+ghdl -a --workdir=work tb/tb_probe2.vhd | exit=0 | 0,058s
+ghdl -e --workdir=work tb_probe2 | exit=0 | 0,080s
+ghdl -r --workdir=work tb_probe2 --stop-time=20us | exit=0 | 0,142s
+ghdl -a --workdir=work tb/tb_ess_probe.vhd | exit=0 | 0,064s
+ghdl -e --workdir=work tb_ess_probe | exit=0 | 0,068s
+ghdl -r --workdir=work tb_ess_probe --stop-time=2us | exit=0 | 0,365s
+ghdl -a --workdir=work tb/tb_probe_real.vhd | exit=0 | 0,069s
+ghdl -e --workdir=work tb_probe_real | exit=0 | 0,082s
+ghdl -r --workdir=work tb_probe_real --stop-time=10us | exit=0 | 0,139s
+ghdl -a --workdir=work tb/tb_probe_sim.vhd | exit=0 | 0,061s
+ghdl -e --workdir=work tb_probe_sim | exit=0 | 0,098s
+ghdl -r --workdir=work tb_probe_sim --stop-time=10us | exit=0 | 0,149s
+### fim 2026-10-16T14:48:21
