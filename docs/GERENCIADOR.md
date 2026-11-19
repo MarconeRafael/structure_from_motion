@@ -1,5 +1,10 @@
 # Gerenciador Python–VHDL — Etapa 2
 
+A Etapa 4 acrescentou cache de assinaturas por instância e a opção
+`--verify-unprofiled-software`. Após a alteração da assinatura, gere novos
+perfis para executar a política conservadora. Veja o contrato e a comparação
+com a versão original no [relatório da Etapa 4](STAGE4.md).
+
 O gerenciador seleciona o cálculo `E = Kᵀ F K` entre NumPy float64 e o kernel
 Q15.16 simulado. Reutiliza `GhdlBackend` da Etapa 1, sem alterar os módulos VHDL,
 os testbenches anteriores ou os scripts OpenCV. O texto da Tarefa 2/3 define o

@@ -23,6 +23,8 @@ def main():
     parser.add_argument("--max-seconds", type=float, help="Orçamento de parede da requisição ao gerenciador")
     parser.add_argument("--prefer", choices=("min_time", "prefer_rtl"), default="min_time")
     parser.add_argument("--fallback", choices=("none", "software", "other"), default="software")
+    parser.add_argument("--verify-unprofiled-software", action="store_true",
+                        help="Permite software com validação posterior se não houver perfil compatível")
     parser.add_argument("--input-class", default="controlled")
     parser.add_argument("--characterize", action="store_true", help="Mede os backends e produz perfis JSON")
     parser.add_argument("--repeats", type=int, default=3)
@@ -49,7 +51,8 @@ def main():
             profiles = load_profiles(args.profiles) if args.profiles and args.backend == "auto" else None
             manager = ExecutionManager(profiles, config=config)
             requirements = Requirements(max_error=args.max_error, max_seconds=args.max_seconds,
-                                        preference=args.prefer, fallback=args.fallback)
+                                        preference=args.prefer, fallback=args.fallback,
+                                        verify_unprofiled_software=args.verify_unprofiled_software)
             result = estimate_essential(data["K"], F=data.get("F"), points1=data.get("points1"),
                                         points2=data.get("points2"), manager=manager, mode=args.backend,
                                         requirements=requirements, input_class=args.input_class)

@@ -29,14 +29,19 @@
   falhas naturais. Um fallback válido mantém a falha da seleção inicial.
 - **Pipeline:** os placeholders e defeitos do `SfM_Top` continuam abertos. O
   estudo avalia somente E; não demonstra reconstrução integral em RTL.
-- **Plataforma:** a avaliação entregue foi executada no Windows com GHDL portátil.
-  Scripts suportam caminhos parametrizados, mas execução Linux/WSL ainda precisa
-  ser demonstrada no ambiente correspondente.
+- **Plataforma:** a avaliação histórica ocorreu no Windows. A Etapa 4 executou a
+  suíte e a comparação pareada no Windows e no WSL Ubuntu 22.04, em um mesmo
+  computador. O WSL usou `/mnt/c` e outra versão do GHDL. Os tempos não foram
+  combinados. O workflow remoto continua pendente. [Validação e medições novas](STAGE4.md).
 - **Literatura:** não há revisão sistemática nem comparação com seletores
   publicados. Originalidade e adequação editorial não foram estabelecidas.
 
-Antes de submissão: ampliar cenas/câmeras e repetições, reproduzir em Linux e em
-outro computador, avaliar qualidade geométrica com ground truth, revisar seleção
-e co-design existentes e definir uma contribuição sustentada pelos dados. Se o
-seletor for trivial, enquadrar como estudo de caso de verificação, validade dos
-perfis e custo de integração; não fabricar ganhos de aceleração.
+O estudo adicional ampliou a geometria conhecida em 108 entradas finais
+sintéticas. O limiar de erro de forma ainda precisa ser relacionado à
+qualidade de pose ou reconstrução. A revisão [direcionada](RELATED_WORK.md)
+fornece antecedentes para avaliar a contribuição e tem escopo limitado.
+
+Antes da submissão, ampliar cenas reais calibradas e repetições, reproduzir
+em outro computador, avaliar pose com ground truth e ampliar a comparação
+bibliográfica. O enquadramento do [manuscrito](PAPER_DRAFT.md) é um estudo de
+caso sobre verificação, validade dos perfis e custo de integração.

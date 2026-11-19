@@ -1,0 +1,109 @@
+{
+  "status": "ok",
+  "valid": true,
+  "E": [
+    [
+      0.006701999568670791,
+      0.36034942525579416,
+      -0.3572719317980787
+    ],
+    [
+      -0.06528867781414571,
+      0.39107482078948674,
+      0.46071267668173077
+    ],
+    [
+      -0.3867855333964627,
+      0.14270874686751045,
+      -0.42725829282464534
+    ]
+  ],
+  "backend": "software",
+  "selected_backend": "software",
+  "decision": {
+    "mode": "auto",
+    "preference": "min_time",
+    "input_class": "bounded",
+    "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+    "requirements": {
+      "max_error": 0.01,
+      "max_seconds": null,
+      "preference": "min_time",
+      "fallback": "software",
+      "verify_unprofiled_software": false
+    },
+    "basis": "prior_observations",
+    "candidates": [
+      {
+        "backend": "software",
+        "eligible": true,
+        "reasons": [],
+        "profile_ids": [
+          "f44c6fef28bb8085b9fe009c58bd652278a639b1550db380dddfa8b7a89e51e3"
+        ],
+        "predicted_max_abs_error": 0.0,
+        "predicted_seconds": 5.7509999999538763e-05
+      },
+      {
+        "backend": "rtl_simulated",
+        "eligible": true,
+        "reasons": [],
+        "profile_ids": [
+          "3c14ededf6e6814d0027906d317259ce46275e4629b23eab42d58f35d695339c"
+        ],
+        "predicted_max_abs_error": 1.489795862652521e-05,
+        "predicted_seconds": 0.5679771410000001
+      }
+    ],
+    "selected_backend": "software"
+  },
+  "attempts": [
+    {
+      "backend": "software",
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.006701999568670791,
+          0.36034942525579416,
+          -0.3572719317980787
+        ],
+        [
+          -0.06528867781414571,
+          0.39107482078948674,
+          0.46071267668173077
+        ],
+        [
+          -0.3867855333964627,
+          0.14270874686751045,
+          -0.42725829282464534
+        ]
+      ],
+      "metrics": {
+        "numpy_seconds": 5.887700000073437e-05,
+        "max_abs_error": 0.0,
+        "observed_seconds": 0.0001054390000021499
+      },
+      "diagnostic": null,
+      "details": null
+    }
+  ],
+  "fallback": {
+    "used": false,
+    "policy": "software"
+  },
+  "metrics": {
+    "signature_seconds": 0.330108022999994,
+    "profile_lookup_seconds": 0.00040236300000628944,
+    "filter_seconds": 0.00012152500000439659,
+    "ranking_seconds": 1.0310000000401942e-05,
+    "signature_cache_hits": 0,
+    "decision_seconds": 0.33068867200000085,
+    "total_seconds": 0.3309254039999985,
+    "initial_attempt_seconds": 0.0001054390000021499,
+    "fallback_seconds": 0.0,
+    "failure_count": 0,
+    "fallback_count": 0,
+    "initial_selection_success": true
+  }
+}

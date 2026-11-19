@@ -1,0 +1,10 @@
+{
+  "historical_run": "experiments/results/20261119T170335054730Z",
+  "output_dir": "experiments/stage4_results",
+  "order_seed": 44701,
+  "repeats": 4,
+  "profile_repeats": 2,
+  "geometry_seed": 89031,
+  "shape_threshold": 0.1,
+  "scenarios": ["strict", "balanced", "rtl_preferred", "tight_deadline", "impossible"]
+}

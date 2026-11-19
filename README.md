@@ -4,6 +4,25 @@ Protótipo de um pipeline de Structure from Motion para duas vistas, descrito em
 
 > **Estado real do projeto (resumo):** o VHDL implementa a **estrutura** do pipeline (módulos, interfaces, máquinas de estados e handshake entre etapas), mas a maior parte dos algoritmos numéricos é **placeholder**: a matriz fundamental, a SVD, a pose e a triangulação usam constantes ou aproximações que **não dependem dos pontos de entrada**. Os resultados geométricos mostrados nas imagens do repositório são calculados **em Python/OpenCV**, não pelo VHDL. Detalhes e evidências nas seções abaixo.
 
+## Auditoria e comparação pareada — Etapa 4
+
+O cache de assinaturas reduziu a decisão mediana de 15,68 ms para 1,40 ms
+no cenário balanceado do Windows. A política conservadora entregou 56 de
+64 resultados válidos nas duas versões. A opção de software verificado
+após a execução entregou 64 de 64. A comparação usa o gerenciador original
+arquivado e o otimizado sob as mesmas entradas e observações de perfis.
+
+```bash
+python -m pip install -r requirements-experiments.txt
+python -m experiments.stage4 --config experiments/stage4_config.json
+```
+
+A auditoria, os resultados adicionais de geometria, os testes Linux e os links
+para os dados estão no [relatório da Etapa 4](docs/STAGE4.md). Os CSVs, JSONs e
+gráficos novos ficam em `experiments/stage4_results/`. A Etapa 3 mantém seu
+registro histórico em `experiments/results/`. Consulte também a
+[revisão bibliográfica](docs/RELATED_WORK.md) e o [manuscrito](docs/PAPER_DRAFT.md).
+
 ## Avaliação experimental — Etapa 3
 
 O comando abaixo audita os testes, gera dados com splits separados, caracteriza

@@ -610,3 +610,16 @@ perfis empíricos e overhead, não uma vantagem de aceleração ou uma contribui
 original já comprovada. Revisão bibliográfica, mais cenas calibradas, avaliação
 geométrica e reprodução em outras plataformas permanecem necessárias antes de
 uma submissão. A estrutura proposta do artigo explicita essas pendências.
+
+## 18. Adendo sobre a Etapa 4
+
+Os 61 testes anteriores passaram na auditoria inicial. A suíte ampliada
+executou 64 testes sem falhas ou testes ignorados, tanto no Windows com
+GHDL 6.0.0 quanto no WSL Ubuntu 22.04.5 com GHDL 1.0.0. O novo workflow Ubuntu
+exige simulador, OpenCV e zero skips. A execução remota está pendente.
+
+Cada plataforma executou 1.600 requisições pareadas e 108 casos adicionais
+de geometria sintética. Os 95 arquivos dos resultados históricos conservaram
+seus hashes. Os resultados da Etapa 4 têm diretórios próprios. O relatório
+compara decisão, overhead e cobertura, documenta o custo a frio e mantém
+separadas as medições do WSL. [Relatório e dados](docs/STAGE4.md).

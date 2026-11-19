@@ -1,0 +1,109 @@
+{
+  "status": "ok",
+  "valid": true,
+  "E": [
+    [
+      0.006701999568670791,
+      0.36034942525579416,
+      -0.3572719317980787
+    ],
+    [
+      -0.06528867781414571,
+      0.39107482078948674,
+      0.46071267668173077
+    ],
+    [
+      -0.3867855333964627,
+      0.14270874686751045,
+      -0.42725829282464534
+    ]
+  ],
+  "backend": "software",
+  "selected_backend": "software",
+  "decision": {
+    "mode": "auto",
+    "preference": "min_time",
+    "input_class": "bounded",
+    "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+    "requirements": {
+      "max_error": 0.01,
+      "max_seconds": null,
+      "preference": "min_time",
+      "fallback": "software",
+      "verify_unprofiled_software": false
+    },
+    "basis": "prior_observations",
+    "candidates": [
+      {
+        "backend": "software",
+        "eligible": true,
+        "reasons": [],
+        "profile_ids": [
+          "aca6d02f9eaf1d16b562c63468a7fa6dc886a2425ab330d056ac3f14dd7fa6c8"
+        ],
+        "predicted_max_abs_error": 0.0,
+        "predicted_seconds": 2.269999822601676e-05
+      },
+      {
+        "backend": "rtl_simulated",
+        "eligible": true,
+        "reasons": [],
+        "profile_ids": [
+          "d1f70b5e272b2783261e0328110d43489539b4a6e4d4e0f5933b10f36ed8a7af"
+        ],
+        "predicted_max_abs_error": 1.489795862652521e-05,
+        "predicted_seconds": 0.1083150000195019
+      }
+    ],
+    "selected_backend": "software"
+  },
+  "attempts": [
+    {
+      "backend": "software",
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.006701999568670791,
+          0.36034942525579416,
+          -0.3572719317980787
+        ],
+        [
+          -0.06528867781414571,
+          0.39107482078948674,
+          0.46071267668173077
+        ],
+        [
+          -0.3867855333964627,
+          0.14270874686751045,
+          -0.42725829282464534
+        ]
+      ],
+      "metrics": {
+        "numpy_seconds": 3.739999374374747e-05,
+        "max_abs_error": 0.0,
+        "observed_seconds": 5.989999044686556e-05
+      },
+      "diagnostic": null,
+      "details": null
+    }
+  ],
+  "fallback": {
+    "used": false,
+    "policy": "software"
+  },
+  "metrics": {
+    "signature_seconds": 0.06054700003005564,
+    "profile_lookup_seconds": 0.00024140003370121121,
+    "filter_seconds": 0.00012030001380480826,
+    "ranking_seconds": 4.8000074457377195e-06,
+    "signature_cache_hits": 0,
+    "decision_seconds": 0.06096649999381043,
+    "total_seconds": 0.061035399994580075,
+    "initial_attempt_seconds": 5.989999044686556e-05,
+    "fallback_seconds": 0.0,
+    "failure_count": 0,
+    "fallback_count": 0,
+    "initial_selection_success": true
+  }
+}

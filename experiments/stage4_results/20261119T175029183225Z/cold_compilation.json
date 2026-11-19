@@ -1,0 +1,85 @@
+{
+  "cache_hit": false,
+  "seconds": 0.23265850002644584,
+  "processes": [
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\src\\fixed_pkg.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.045971899991855025
+    },
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\src\\algebra_pkg.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.028758300002664328
+    },
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\src\\algebra_pkg_body.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.03440130001399666
+    },
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\src\\essential_matrix.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.026569000008748844
+    },
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\tb\\tb_essential_io.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.03564129999722354
+    },
+    {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-e",
+        "--std=08",
+        "--workdir=.",
+        "tb_essential_io"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.06131670001195744
+    }
+  ],
+  "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+}

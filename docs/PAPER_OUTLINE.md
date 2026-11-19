@@ -1,5 +1,8 @@
 # Estrutura proposta para artigo — ainda não pronto para submissão
 
+Estrutura histórica da Etapa 3. A Etapa 4 tem [manuscrito](PAPER_DRAFT.md),
+[revisão bibliográfica](RELATED_WORK.md) e [comparação pareada](STAGE4.md).
+
 **Constraint-Based Execution Selection for a Structure-from-Motion Geometry Kernel:
 A Python–VHDL Simulation Study**
 

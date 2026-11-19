@@ -1,0 +1,85 @@
+{
+  "cache_hit": false,
+  "seconds": 1.1955681180000006,
+  "processes": [
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/src/fixed_pkg.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.15287857100000046
+    },
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/src/algebra_pkg.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.17129983499999923
+    },
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/src/algebra_pkg_body.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.16716947699999984
+    },
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/src/essential_matrix.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.16609507800000145
+    },
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-a",
+        "--std=08",
+        "--workdir=.",
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/tb/tb_essential_io.vhd"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.17183081700000002
+    },
+    {
+      "command": [
+        "/mnt/c/Users/Marcone/Documents/vhdl/structure_from_motion/build/stage4-linux/usr/bin/ghdl-mcode",
+        "-e",
+        "--std=08",
+        "--workdir=.",
+        "tb_essential_io"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0,
+      "seconds": 0.3662943399999996
+    }
+  ],
+  "version": "GHDL 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\n Compiled with GNAT Version: 10.3.1 20211117\n mcode code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2021 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+}
