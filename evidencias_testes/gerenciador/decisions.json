@@ -1,0 +1,846 @@
+{
+  "purpose": "operational_demo_not_publication_benchmark",
+  "fault_injection": {
+    "enabled": true,
+    "simulation_timeout_seconds": 1e-06
+  },
+  "results": {
+    "software": {
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "backend": "software",
+      "selected_backend": "software",
+      "decision": {
+        "mode": "software",
+        "preference": "min_time",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": null,
+          "preference": "min_time",
+          "fallback": "software"
+        },
+        "basis": "fixed_policy",
+        "candidates": [],
+        "selected_backend": "software"
+      },
+      "attempts": [
+        {
+          "backend": "software",
+          "status": "ok",
+          "valid": true,
+          "E": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "metrics": {
+            "numpy_seconds": 4.199999966658652e-05,
+            "max_abs_error": 0.0,
+            "observed_seconds": 5.4599979193881154e-05
+          },
+          "diagnostic": null,
+          "details": null
+        }
+      ],
+      "fallback": {
+        "used": false,
+        "policy": "software"
+      },
+      "metrics": {
+        "decision_seconds": 3.6500015994533896e-05,
+        "total_seconds": 0.00010090001160278916,
+        "initial_attempt_seconds": 5.4599979193881154e-05,
+        "fallback_seconds": 0.0,
+        "failure_count": 0,
+        "fallback_count": 0,
+        "initial_selection_success": true
+      }
+    },
+    "rtl_simulated": {
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "backend": "rtl_simulated",
+      "selected_backend": "rtl_simulated",
+      "decision": {
+        "mode": "rtl_simulated",
+        "preference": "min_time",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": null,
+          "preference": "min_time",
+          "fallback": "software"
+        },
+        "basis": "fixed_policy",
+        "candidates": [],
+        "selected_backend": "rtl_simulated"
+      },
+      "attempts": [
+        {
+          "backend": "rtl_simulated",
+          "status": "ok",
+          "valid": true,
+          "E": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "metrics": {
+            "max_abs_error": 0.0,
+            "observed_seconds": 0.10903339998912998
+          },
+          "diagnostic": null,
+          "details": {
+            "status": "ok",
+            "valid": true,
+            "E": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "E_raw": [
+              [
+                0,
+                -65536,
+                32768
+              ],
+              [
+                65536,
+                0,
+                -16384
+              ],
+              [
+                -32768,
+                16384,
+                0
+              ]
+            ],
+            "reference_float64": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "reference_integer_raw": [
+              [
+                0,
+                -65536,
+                32768
+              ],
+              [
+                65536,
+                0,
+                -16384
+              ],
+              [
+                -32768,
+                16384,
+                0
+              ]
+            ],
+            "reference_quantized_float64": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "bit_exact": true,
+            "overflow_events": [],
+            "cycles": 1,
+            "max_abs_error": 0.0,
+            "input_quantization_max_abs_error": 0.0,
+            "arithmetic_max_abs_error": 0.0,
+            "execution": {
+              "compilation": {
+                "cache_hit": true,
+                "seconds": 0.0,
+                "processes": [],
+                "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+              },
+              "simulation": {
+                "command": [
+                  "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                  "-r",
+                  "--std=08",
+                  "--workdir=.",
+                  "tb_essential_io",
+                  "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-149aal4_\\matrices.in",
+                  "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-149aal4_\\matrices.out",
+                  "-gmax_cycles=10",
+                  "--assert-level=error"
+                ],
+                "stdout": "simulation finished @40ns\n",
+                "stderr": "",
+                "returncode": 0,
+                "seconds": 0.08644990000175312
+              },
+              "preparation_seconds": 0.00029670001822523773,
+              "serialization_seconds": 0.000680199998896569,
+              "parsing_seconds": 0.000751899991882965,
+              "total_seconds": 0.10813390000839718
+            }
+          }
+        }
+      ],
+      "fallback": {
+        "used": false,
+        "policy": "software"
+      },
+      "metrics": {
+        "decision_seconds": 2.13000166695565e-05,
+        "total_seconds": 0.10906650000833906,
+        "initial_attempt_seconds": 0.10903339998912998,
+        "fallback_seconds": 0.0,
+        "failure_count": 0,
+        "fallback_count": 0,
+        "initial_selection_success": true
+      }
+    },
+    "auto": {
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "backend": "software",
+      "selected_backend": "software",
+      "decision": {
+        "mode": "auto",
+        "preference": "min_time",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": null,
+          "preference": "min_time",
+          "fallback": "software"
+        },
+        "basis": "prior_observations",
+        "candidates": [
+          {
+            "backend": "software",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "05627341518bbf5c0eecc9081bc73119b970676367b1488ec1ebd43b0a887aa7"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 3.259998629800975e-05
+          },
+          {
+            "backend": "rtl_simulated",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "f0089595dc4ba82e22d1ba7e5c5510e78ff08eb878648ea0af7d872b8b8825b4"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 0.11346140000387095
+          }
+        ],
+        "selected_backend": "software"
+      },
+      "attempts": [
+        {
+          "backend": "software",
+          "status": "ok",
+          "valid": true,
+          "E": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "metrics": {
+            "numpy_seconds": 3.689998993650079e-05,
+            "max_abs_error": 0.0,
+            "observed_seconds": 6.000002031214535e-05
+          },
+          "diagnostic": null,
+          "details": null
+        }
+      ],
+      "fallback": {
+        "used": false,
+        "policy": "software"
+      },
+      "metrics": {
+        "decision_seconds": 0.018204800027888268,
+        "total_seconds": 0.01827430000412278,
+        "initial_attempt_seconds": 6.000002031214535e-05,
+        "fallback_seconds": 0.0,
+        "failure_count": 0,
+        "fallback_count": 0,
+        "initial_selection_success": true
+      }
+    },
+    "prefer_rtl": {
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "backend": "rtl_simulated",
+      "selected_backend": "rtl_simulated",
+      "decision": {
+        "mode": "auto",
+        "preference": "prefer_rtl",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": null,
+          "preference": "prefer_rtl",
+          "fallback": "software"
+        },
+        "basis": "prior_observations",
+        "candidates": [
+          {
+            "backend": "software",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "05627341518bbf5c0eecc9081bc73119b970676367b1488ec1ebd43b0a887aa7"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 3.259998629800975e-05
+          },
+          {
+            "backend": "rtl_simulated",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "f0089595dc4ba82e22d1ba7e5c5510e78ff08eb878648ea0af7d872b8b8825b4"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 0.11346140000387095
+          }
+        ],
+        "selected_backend": "rtl_simulated"
+      },
+      "attempts": [
+        {
+          "backend": "rtl_simulated",
+          "status": "ok",
+          "valid": true,
+          "E": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "metrics": {
+            "max_abs_error": 0.0,
+            "observed_seconds": 0.10905389999970794
+          },
+          "diagnostic": null,
+          "details": {
+            "status": "ok",
+            "valid": true,
+            "E": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "E_raw": [
+              [
+                0,
+                -65536,
+                32768
+              ],
+              [
+                65536,
+                0,
+                -16384
+              ],
+              [
+                -32768,
+                16384,
+                0
+              ]
+            ],
+            "reference_float64": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "reference_integer_raw": [
+              [
+                0,
+                -65536,
+                32768
+              ],
+              [
+                65536,
+                0,
+                -16384
+              ],
+              [
+                -32768,
+                16384,
+                0
+              ]
+            ],
+            "reference_quantized_float64": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "bit_exact": true,
+            "overflow_events": [],
+            "cycles": 1,
+            "max_abs_error": 0.0,
+            "input_quantization_max_abs_error": 0.0,
+            "arithmetic_max_abs_error": 0.0,
+            "execution": {
+              "compilation": {
+                "cache_hit": true,
+                "seconds": 0.0,
+                "processes": [],
+                "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+              },
+              "simulation": {
+                "command": [
+                  "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                  "-r",
+                  "--std=08",
+                  "--workdir=.",
+                  "tb_essential_io",
+                  "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-etc05idi\\matrices.in",
+                  "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-etc05idi\\matrices.out",
+                  "-gmax_cycles=10",
+                  "--assert-level=error"
+                ],
+                "stdout": "simulation finished @40ns\n",
+                "stderr": "",
+                "returncode": 0,
+                "seconds": 0.08592679997673258
+              },
+              "preparation_seconds": 0.00030780001543462276,
+              "serialization_seconds": 0.0006063000182621181,
+              "parsing_seconds": 0.00045780002255924046,
+              "total_seconds": 0.10816720000002533
+            }
+          }
+        }
+      ],
+      "fallback": {
+        "used": false,
+        "policy": "software"
+      },
+      "metrics": {
+        "decision_seconds": 0.020145699993008748,
+        "total_seconds": 0.1292177999857813,
+        "initial_attempt_seconds": 0.10905389999970794,
+        "fallback_seconds": 0.0,
+        "failure_count": 0,
+        "fallback_count": 0,
+        "initial_selection_success": true
+      }
+    },
+    "impossible_time": {
+      "status": "no_feasible_configuration",
+      "valid": false,
+      "E": null,
+      "backend": null,
+      "selected_backend": null,
+      "decision": {
+        "mode": "auto",
+        "preference": "min_time",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": 0,
+          "preference": "min_time",
+          "fallback": "software"
+        },
+        "basis": "prior_observations",
+        "candidates": [
+          {
+            "backend": "software",
+            "eligible": false,
+            "reasons": [
+              {
+                "code": "predicted_time_limit"
+              }
+            ],
+            "profile_ids": [
+              "05627341518bbf5c0eecc9081bc73119b970676367b1488ec1ebd43b0a887aa7"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 3.259998629800975e-05
+          },
+          {
+            "backend": "rtl_simulated",
+            "eligible": false,
+            "reasons": [
+              {
+                "code": "predicted_time_limit"
+              }
+            ],
+            "profile_ids": [
+              "f0089595dc4ba82e22d1ba7e5c5510e78ff08eb878648ea0af7d872b8b8825b4"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 0.11346140000387095
+          }
+        ],
+        "selected_backend": null
+      },
+      "attempts": [],
+      "fallback": {
+        "used": false,
+        "policy": "software"
+      },
+      "metrics": {
+        "decision_seconds": 0.020360599999548867,
+        "total_seconds": 0.02036289998795837,
+        "initial_attempt_seconds": 0.0,
+        "fallback_seconds": 0.0,
+        "failure_count": 0,
+        "fallback_count": 0,
+        "initial_selection_success": false
+      }
+    },
+    "injected_timeout": {
+      "status": "fallback_ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "backend": "software",
+      "selected_backend": "rtl_simulated",
+      "decision": {
+        "mode": "auto",
+        "preference": "prefer_rtl",
+        "input_class": "controlled",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "requirements": {
+          "max_error": 0.01,
+          "max_seconds": null,
+          "preference": "prefer_rtl",
+          "fallback": "software"
+        },
+        "basis": "prior_observations",
+        "candidates": [
+          {
+            "backend": "software",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "05627341518bbf5c0eecc9081bc73119b970676367b1488ec1ebd43b0a887aa7"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 3.259998629800975e-05
+          },
+          {
+            "backend": "rtl_simulated",
+            "eligible": true,
+            "reasons": [],
+            "profile_ids": [
+              "f0089595dc4ba82e22d1ba7e5c5510e78ff08eb878648ea0af7d872b8b8825b4"
+            ],
+            "predicted_max_abs_error": 0.0,
+            "predicted_seconds": 0.11346140000387095
+          }
+        ],
+        "selected_backend": "rtl_simulated"
+      },
+      "attempts": [
+        {
+          "backend": "rtl_simulated",
+          "status": "error",
+          "valid": false,
+          "E": null,
+          "metrics": {
+            "observed_seconds": 0.05145630001788959
+          },
+          "diagnostic": {
+            "stage": "timeout",
+            "message": "Timeout em simulation",
+            "process": {
+              "command": [
+                "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                "-r",
+                "--std=08",
+                "--workdir=.",
+                "tb_essential_io",
+                "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-yvc6nnh7\\matrices.in",
+                "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-yvc6nnh7\\matrices.out",
+                "-gmax_cycles=10",
+                "--assert-level=error"
+              ],
+              "stdout": "",
+              "stderr": "",
+              "returncode": null,
+              "seconds": 0.024755299993557855
+            }
+          },
+          "details": null
+        },
+        {
+          "backend": "software",
+          "status": "ok",
+          "valid": true,
+          "E": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "metrics": {
+            "numpy_seconds": 8.50000069476664e-05,
+            "max_abs_error": 0.0,
+            "observed_seconds": 0.000172999978531152
+          },
+          "diagnostic": null,
+          "details": null
+        }
+      ],
+      "fallback": {
+        "used": true,
+        "policy": "software",
+        "reason": {
+          "stage": "timeout",
+          "message": "Timeout em simulation",
+          "process": {
+            "command": [
+              "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+              "-r",
+              "--std=08",
+              "--workdir=.",
+              "tb_essential_io",
+              "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-yvc6nnh7\\matrices.in",
+              "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-yvc6nnh7\\matrices.out",
+              "-gmax_cycles=10",
+              "--assert-level=error"
+            ],
+            "stdout": "",
+            "stderr": "",
+            "returncode": null,
+            "seconds": 0.024755299993557855
+          }
+        },
+        "from_backend": "rtl_simulated",
+        "to_backend": "software",
+        "time_before_fallback_seconds": 0.07516369997756556
+      },
+      "metrics": {
+        "decision_seconds": 0.02369069997803308,
+        "total_seconds": 0.07536749998689629,
+        "initial_attempt_seconds": 0.05145630001788959,
+        "fallback_seconds": 0.000172999978531152,
+        "failure_count": 1,
+        "fallback_count": 1,
+        "initial_selection_success": false
+      }
+    }
+  }
+}

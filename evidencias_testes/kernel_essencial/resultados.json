@@ -1,0 +1,512 @@
+{
+  "date": "2026-11-19",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "numpy": "2.2.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "ghdl": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n",
+    "ghdl_release": "https://github.com/ghdl/ghdl/releases/tag/v6.0.0",
+    "ghdl_zip_sha256": "c1562b2a4767e34d33159b536b5e36a8a38ebdb6e7672aa9969a4f4ac2cadffe"
+  },
+  "git_head": "aeaa1799a358bd06b0f0fa2a1ec5b1e83f60050f",
+  "working_tree": "Etapa 1 nao commitada sobre git_head",
+  "source_sha256": {
+    "src/fixed_pkg.vhd": "9429d01ac5aeb9a6d972f45ad8aff214299ae203bc030bee1ef8dcc65b2e5b07",
+    "src/algebra_pkg.vhd": "0cfbb5f873fb50ae5acb4ad52c868c3c55ad2153fd455231ee8168d827a3466f",
+    "src/algebra_pkg_body.vhd": "4470eb995c7a822d025b45b5c123a9c19cf21d59c131da46cb9910c9bd733467",
+    "src/essential_matrix.vhd": "68a839e5b077025635551e0eb0e8f33537c22980342a8053003d573c2cce28e4",
+    "tb/tb_essential_io.vhd": "bb3793cffbf7e201b81dbf93515a8959cb4143b08c7b6d3e90756f20ee24d448"
+  },
+  "unittest": {
+    "command": "python -m unittest discover -s tests -v",
+    "require_ghdl": true,
+    "tests_run": 27,
+    "wall_seconds": 7.246,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "legacy": {
+    "run_sh": {
+      "command": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "./run.sh"
+      ],
+      "returncode": 0,
+      "stdout": "Compilando pacotes base...\nCompilando módulos principais...\nCompilando testbench...\nElaborando design...\nExecutando simulação...\ntb/tb_top.vhd:142:9:@1455ns:(report note): Teste SfM completo executado com sucesso!\ntb/tb_top.vhd:143:9:@1455ns:(report note): Pipeline executado: Fundamental -> Essential -> Pose -> Triangulation\nghdl:info: simulation stopped by --stop-time @10us\nSimulação concluída. Arquivo wave.vcd gerado.\n",
+      "stderr": ""
+    },
+    "tb_fundamental": {
+      "command": [
+        "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "-r",
+        "--std=08",
+        "--workdir=work08",
+        "tb_fundamental",
+        "--stop-time=2us"
+      ],
+      "returncode": 0,
+      "stdout": "tb/tb_fundamental.vhd:59:9:@1020ns:(report note): Simula��o encerrada com sucesso.\nsimulation stopped @1020ns\n",
+      "stderr": ""
+    },
+    "all_eight_subprocess_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "cases": [
+    {
+      "name": "identity_calibration",
+      "F": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "K": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "ok",
+      "valid": true,
+      "E": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "E_raw": [
+        [
+          0,
+          -65536,
+          32768
+        ],
+        [
+          65536,
+          0,
+          -16384
+        ],
+        [
+          -32768,
+          16384,
+          0
+        ]
+      ],
+      "reference_float64": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "reference_integer_raw": [
+        [
+          0,
+          -65536,
+          32768
+        ],
+        [
+          65536,
+          0,
+          -16384
+        ],
+        [
+          -32768,
+          16384,
+          0
+        ]
+      ],
+      "reference_quantized_float64": [
+        [
+          0.0,
+          -1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "bit_exact": true,
+      "overflow_events": [],
+      "cycles": 1,
+      "max_abs_error": 0.0,
+      "input_quantization_max_abs_error": 0.0,
+      "arithmetic_max_abs_error": 0.0
+    },
+    {
+      "name": "result32_overflow",
+      "F": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "K": [
+        [
+          200.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          200.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          200.0
+        ]
+      ],
+      "status": "numeric_overflow",
+      "valid": false,
+      "E": [
+        [
+          -25536.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -25536.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -25536.0
+        ]
+      ],
+      "E_raw": [
+        [
+          -1673527296,
+          0,
+          0
+        ],
+        [
+          0,
+          -1673527296,
+          0
+        ],
+        [
+          0,
+          0,
+          -1673527296
+        ]
+      ],
+      "reference_float64": [
+        [
+          40000.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          40000.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          40000.0
+        ]
+      ],
+      "reference_integer_raw": [
+        [
+          -1673527296,
+          0,
+          0
+        ],
+        [
+          0,
+          -1673527296,
+          0
+        ],
+        [
+          0,
+          0,
+          -1673527296
+        ]
+      ],
+      "reference_quantized_float64": [
+        [
+          40000.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          40000.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          40000.0
+        ]
+      ],
+      "bit_exact": true,
+      "overflow_events": [
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 0,
+          "column": 0
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 1,
+          "column": 1
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 2,
+          "column": 2
+        }
+      ],
+      "cycles": 1,
+      "max_abs_error": 65536.0,
+      "input_quantization_max_abs_error": 0.0,
+      "arithmetic_max_abs_error": 65536.0
+    },
+    {
+      "name": "historical_calibration_overflow",
+      "F": [
+        [
+          0.5,
+          0.25,
+          0.125
+        ],
+        [
+          0.0625,
+          0.03125,
+          0.015625
+        ],
+        [
+          0.0078125,
+          0.00390625,
+          0.001953125
+        ]
+      ],
+      "K": [
+        [
+          525.0,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          525.0,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "numeric_overflow",
+      "valid": false,
+      "E": [
+        [
+          6740.5,
+          3370.25,
+          -15506.375
+        ],
+        [
+          17226.5625,
+          8613.28125,
+          14445.703125
+        ],
+        [
+          26343.1015625,
+          -19596.44921875,
+          11511.189453125
+        ]
+      ],
+      "E_raw": [
+        [
+          441745408,
+          220872704,
+          -1016225792
+        ],
+        [
+          1128960000,
+          564480000,
+          946713600
+        ],
+        [
+          1726421504,
+          -1284272896,
+          754397312
+        ]
+      ],
+      "reference_float64": [
+        [
+          137812.5,
+          68906.25,
+          115565.625
+        ],
+        [
+          17226.5625,
+          8613.28125,
+          14445.703125
+        ],
+        [
+          91879.1015625,
+          45939.55078125,
+          77047.189453125
+        ]
+      ],
+      "reference_integer_raw": [
+        [
+          441745408,
+          220872704,
+          -1016225792
+        ],
+        [
+          1128960000,
+          564480000,
+          946713600
+        ],
+        [
+          1726421504,
+          -1284272896,
+          754397312
+        ]
+      ],
+      "reference_quantized_float64": [
+        [
+          137812.5,
+          68906.25,
+          115565.625
+        ],
+        [
+          17226.5625,
+          8613.28125,
+          14445.703125
+        ],
+        [
+          91879.1015625,
+          45939.55078125,
+          77047.189453125
+        ]
+      ],
+      "bit_exact": true,
+      "overflow_events": [
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 0,
+          "column": 0
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 0,
+          "column": 1
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 0,
+          "column": 2
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 2,
+          "column": 0
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 2,
+          "column": 1
+        },
+        {
+          "stage": "K.T*(F*K)",
+          "kind": "result32",
+          "row": 2,
+          "column": 2
+        }
+      ],
+      "cycles": 1,
+      "max_abs_error": 131072.0,
+      "input_quantization_max_abs_error": 0.0,
+      "arithmetic_max_abs_error": 131072.0
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+category,samples,exported,bit_exact,valid_no_overflow,overflow,max_absolute_error_all,max_absolute_error_valid,relative_undefined,valid_rate
+controlled,22,22,22,16,6,309218317959168.0,2.690053067588849e-05,0,0.7272727272727273
+repository_images,4,4,4,4,0,3.2103389825520665,3.2103389825520665,0,1.0
+synthetic_geometry,6,6,6,6,0,0.027354457134013667,0.027354457134013667,0,1.0

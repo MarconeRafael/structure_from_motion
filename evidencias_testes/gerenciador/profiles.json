@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "backend": "software",
+      "signature": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "numpy": "2.2.6",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+        "python_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\.venv\\Scripts\\python.exe",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "time_scope": "backend_attempt_including_validation_v1",
+        "ghdl": null,
+        "implementation_sha256": "7afc703ea32fb86f391f609d75042e1099f634600416d3400a96a9021214c14a"
+      },
+      "created_utc": "2026-11-19T16:49:20.326782+00:00",
+      "experiment_id": "stage2-operational-demo",
+      "input_class": "controlled",
+      "domain": {
+        "F": {
+          "min": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "max": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ]
+        },
+        "K": {
+          "min": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "max": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+      "time_scope": "backend_attempt_including_validation_v1",
+      "conditions": {
+        "repeats": 3,
+        "warmup": 1,
+        "cache_policy": "reuse_existing",
+        "case_order": "provided",
+        "cases": [
+          {
+            "F": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "K": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ]
+      },
+      "warmup_observations": [
+        {
+          "valid": true,
+          "diagnostic": null
+        }
+      ],
+      "samples": [
+        {
+          "case_index": 0,
+          "repetition": 0,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 3.259998629800975e-05,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": null
+        },
+        {
+          "case_index": 0,
+          "repetition": 1,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 2.0800012862309813e-05,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": null
+        },
+        {
+          "case_index": 0,
+          "repetition": 2,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 1.930000144056976e-05,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": null
+        }
+      ],
+      "summary": {
+        "max_abs_error": 0.0,
+        "max_seconds": 3.259998629800975e-05,
+        "failure_rate": 0.0
+      },
+      "id": "05627341518bbf5c0eecc9081bc73119b970676367b1488ec1ebd43b0a887aa7"
+    },
+    {
+      "backend": "rtl_simulated",
+      "signature": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "numpy": "2.2.6",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+        "python_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\.venv\\Scripts\\python.exe",
+        "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+        "time_scope": "backend_attempt_including_validation_v1",
+        "ghdl": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "ghdl_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+        "flags": [
+          "--std=08"
+        ],
+        "timeout": 30.0,
+        "max_cycles": 10,
+        "implementation_sha256": "998536e3ab8f384d0e5014222f67ae7c7fab5bfaa845b4f84b69286599038209"
+      },
+      "created_utc": "2026-11-19T16:49:20.326782+00:00",
+      "experiment_id": "stage2-operational-demo",
+      "input_class": "controlled",
+      "domain": {
+        "F": {
+          "min": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ],
+          "max": [
+            [
+              0.0,
+              -1.0,
+              0.5
+            ],
+            [
+              1.0,
+              0.0,
+              -0.25
+            ],
+            [
+              -0.5,
+              0.25,
+              0.0
+            ]
+          ]
+        },
+        "K": {
+          "min": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "max": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+      "time_scope": "backend_attempt_including_validation_v1",
+      "conditions": {
+        "repeats": 3,
+        "warmup": 1,
+        "cache_policy": "reuse_existing",
+        "case_order": "provided",
+        "cases": [
+          {
+            "F": [
+              [
+                0.0,
+                -1.0,
+                0.5
+              ],
+              [
+                1.0,
+                0.0,
+                -0.25
+              ],
+              [
+                -0.5,
+                0.25,
+                0.0
+              ]
+            ],
+            "K": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        ]
+      },
+      "warmup_observations": [
+        {
+          "valid": true,
+          "diagnostic": null
+        }
+      ],
+      "samples": [
+        {
+          "case_index": 0,
+          "repetition": 0,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 0.10467359999893233,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": {
+            "compilation": {
+              "cache_hit": true,
+              "seconds": 0.0,
+              "processes": [],
+              "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+            },
+            "simulation": {
+              "command": [
+                "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                "-r",
+                "--std=08",
+                "--workdir=.",
+                "tb_essential_io",
+                "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-wadnwws8\\matrices.in",
+                "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-wadnwws8\\matrices.out",
+                "-gmax_cycles=10",
+                "--assert-level=error"
+              ],
+              "stdout": "simulation finished @40ns\n",
+              "stderr": "",
+              "returncode": 0,
+              "seconds": 0.08180230000289157
+            },
+            "preparation_seconds": 0.0002742999931797385,
+            "serialization_seconds": 0.0007791000243742019,
+            "parsing_seconds": 0.00045540000428445637,
+            "total_seconds": 0.10379930000635795
+          }
+        },
+        {
+          "case_index": 0,
+          "repetition": 1,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 0.11346140000387095,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": {
+            "compilation": {
+              "cache_hit": true,
+              "seconds": 0.0,
+              "processes": [],
+              "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+            },
+            "simulation": {
+              "command": [
+                "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                "-r",
+                "--std=08",
+                "--workdir=.",
+                "tb_essential_io",
+                "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-y_wvlpmi\\matrices.in",
+                "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-y_wvlpmi\\matrices.out",
+                "-gmax_cycles=10",
+                "--assert-level=error"
+              ],
+              "stdout": "simulation finished @40ns\n",
+              "stderr": "",
+              "returncode": 0,
+              "seconds": 0.08882909998646937
+            },
+            "preparation_seconds": 0.00032950000604614615,
+            "serialization_seconds": 0.0007998000073712319,
+            "parsing_seconds": 0.00045239998144097626,
+            "total_seconds": 0.11244540000916459
+          }
+        },
+        {
+          "case_index": 0,
+          "repetition": 2,
+          "valid": true,
+          "status": "ok",
+          "observed_seconds": 0.10978240001713857,
+          "max_abs_error": 0.0,
+          "diagnostic": null,
+          "execution": {
+            "compilation": {
+              "cache_hit": true,
+              "seconds": 0.0,
+              "processes": [],
+              "version": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+            },
+            "simulation": {
+              "command": [
+                "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+                "-r",
+                "--std=08",
+                "--workdir=.",
+                "tb_essential_io",
+                "-ginput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-3phx2tva\\matrices.in",
+                "-goutput_file=C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\essential\\run-3phx2tva\\matrices.out",
+                "-gmax_cycles=10",
+                "--assert-level=error"
+              ],
+              "stdout": "simulation finished @40ns\n",
+              "stderr": "",
+              "returncode": 0,
+              "seconds": 0.0843555000028573
+            },
+            "preparation_seconds": 0.00043829999049194157,
+            "serialization_seconds": 0.000689799984684214,
+            "parsing_seconds": 0.00039170001400634646,
+            "total_seconds": 0.10843510000267997
+          }
+        }
+      ],
+      "summary": {
+        "max_abs_error": 0.0,
+        "max_seconds": 0.11346140000387095,
+        "failure_rate": 0.0
+      },
+      "id": "f0089595dc4ba82e22d1ba7e5c5510e78ff08eb878648ea0af7d872b8b8825b4"
+    }
+  ],
+  "unavailable": []
+}

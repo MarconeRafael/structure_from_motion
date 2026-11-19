@@ -1,0 +1,156 @@
+{
+  "run_id": "20261119T170758989402Z",
+  "created_utc": "2026-11-19T17:07:58.990397+00:00",
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "output_dir": "experiments/results",
+    "dataset_seed": 7319,
+    "order_seed": 1187,
+    "replications": 2,
+    "profile_repeats": 2,
+    "warmup": 1,
+    "timing_repeats": 5,
+    "policy_repeats": 2,
+    "relative_zero_threshold": 1e-12,
+    "timeout": 30.0,
+    "scenarios": [
+      {
+        "id": "strict",
+        "max_error": 1e-06,
+        "max_seconds": null,
+        "preference": "min_time",
+        "fallback": "software"
+      },
+      {
+        "id": "balanced",
+        "max_error": 0.01,
+        "max_seconds": null,
+        "preference": "min_time",
+        "fallback": "software"
+      },
+      {
+        "id": "rtl_preferred",
+        "max_error": 0.01,
+        "max_seconds": null,
+        "preference": "prefer_rtl",
+        "fallback": "software"
+      },
+      {
+        "id": "tight_deadline",
+        "max_error": 0.01,
+        "max_seconds": 0.005,
+        "preference": "min_time",
+        "fallback": "software"
+      },
+      {
+        "id": "impossible",
+        "max_error": 0.0,
+        "max_seconds": 0.0,
+        "preference": "min_time",
+        "fallback": "software"
+      }
+    ]
+  },
+  "config_sha256": "a184317f9580f5d3d1f324e8bb1b136f79bede408bd4e9027d4d02039a2deae6",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "versions": {
+    "numpy": "2.2.6",
+    "opencv-python-headless": "4.12.0.88",
+    "matplotlib": "3.10.7"
+  },
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+  "machine": "AMD64",
+  "perf_counter": "namespace(implementation='QueryPerformanceCounter()', monotonic=True, adjustable=False, resolution=1e-07)",
+  "signatures": {
+    "software": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "numpy": "2.2.6",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "machine": "AMD64",
+      "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+      "python_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\clean_experiments_env\\Scripts\\python.exe",
+      "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+      "time_scope": "backend_attempt_including_validation_v1",
+      "ghdl": null,
+      "implementation_sha256": "7afc703ea32fb86f391f609d75042e1099f634600416d3400a96a9021214c14a"
+    },
+    "rtl_simulated": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "numpy": "2.2.6",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "machine": "AMD64",
+      "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+      "python_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\clean_experiments_env\\Scripts\\python.exe",
+      "error_metric": "max_abs_entry_vs_numpy_float64_v1",
+      "time_scope": "backend_attempt_including_validation_v1",
+      "ghdl": "GHDL 6.0.0 (6.0.0.r0.ge589c698c.dirty) [Dunoon edition]\n Compiled with GNAT Version: 15.2.0\n static elaboration, mcode JIT code generator\nWritten by Tristan Gingold.\n\nCopyright (C) 2003 - 2026 Tristan Gingold.\nGHDL is free software, covered by the GNU General Public License.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+      "ghdl_executable": "C:\\Users\\Marcone\\Documents\\vhdl\\structure_from_motion\\build\\tools\\ghdl\\bin\\ghdl.exe",
+      "flags": [
+        "--std=08"
+      ],
+      "timeout": 30.0,
+      "max_cycles": 10,
+      "implementation_sha256": "998536e3ab8f384d0e5014222f67ae7c7fab5bfaa845b4f84b69286599038209"
+    }
+  },
+  "source_sha256": {
+    "experiments\\__init__.py": "88d91d98a9f44cdd7226f5bb7543d7c763e44dab6f35c1645a0b414fbb4d38cb",
+    "experiments\\analysis.py": "7cd12f9dbe031e1b70b7a1123f0fcec049b90ecd830384c34b3e8f99c45473a5",
+    "experiments\\datasets.py": "b5f70424f08e17aa497f4f87ab8bd72c900502eb7b751b0e1abeb015fc50143e",
+    "experiments\\faults.py": "7aeb0e7e8e545e4fa7970409f2be69e7194c2967b65fc9e2ca578c94ec6a0e1f",
+    "experiments\\report.py": "4ad5f797ee3fb563b99e7a2ab73c1591bce132d7cb1174fec2c855e92e189f2c",
+    "experiments\\runner.py": "4da7de7f4e96b07789e37b0faeaa924e8de5f3d7d48bac4476619adca3c8be00",
+    "extract_points.py": "f64ae9adbef192dee4fb24e2c3a1715abc0600e1904659050c909ca35a6e280e",
+    "hybrid_sfm\\__init__.py": "5ca04519fab714cf56ab38d6fe2a7569e844b45609d58216c0b17b32088f6354",
+    "hybrid_sfm\\__main__.py": "9488356a3b335849854136a726c98a52478b3b137541cea61f821ed81dc95b0e",
+    "hybrid_sfm\\backends.py": "52525851dcc68adc6a6913f7342f71d48b106482e1541197dde03dd9e9fc4c8c",
+    "hybrid_sfm\\fixed_point.py": "b8c2fc680d1b7c45f42762026dad67bee76a1cbd86de5730d64f787349c62bab",
+    "hybrid_sfm\\ghdl_backend.py": "e64b580e72afbc0d76bad6391c0f2e978cbf3d5373ec9514e5f4ff8feedbdc3b",
+    "hybrid_sfm\\manager.py": "3477705dbb2aa4d69a2b7e8b82cab9556f6ad604f63815d647e8b7834a3cf7bd",
+    "hybrid_sfm\\metrics.py": "1ecdd55eef5e9cecf8e71a3a7f48462b5cbc0c7026ee2ebeb5ac51042be2ceb7",
+    "hybrid_sfm\\profiles.py": "6091e301b5715c2c87f7b85d28dfb8099a28a1230bc3c0267d8af12fdc62e32b",
+    "hybrid_sfm\\reference.py": "b07c97800b3577ba43d300436444eb04c860edc16ec2c9e3093481f230b22aae",
+    "hybrid_sfm\\sfm.py": "f36705b4a52a50f38410bc060a311fbacd3b620af12fd6838d2478c03af32982",
+    "run_experiments.py": "213f746aba21dcc9b3e5dd9204e800ec3337a0fa316cbc6ac48a429817a5fd25",
+    "src\\algebra_pkg.vhd": "0cfbb5f873fb50ae5acb4ad52c868c3c55ad2153fd455231ee8168d827a3466f",
+    "src\\algebra_pkg_body.vhd": "4470eb995c7a822d025b45b5c123a9c19cf21d59c131da46cb9910c9bd733467",
+    "src\\essential_matrix.vhd": "68a839e5b077025635551e0eb0e8f33537c22980342a8053003d573c2cce28e4",
+    "src\\fixed_pkg.vhd": "9429d01ac5aeb9a6d972f45ad8aff214299ae203bc030bee1ef8dcc65b2e5b07",
+    "src\\fundamental_matrix.vhd": "65b824c3eea3d0108305ffa321de895f7fd67cca7e775771bb27a54e047486aa",
+    "src\\pose_extraction.vhd": "116ef7ef6887b404dd3a8327011dbabf1c0503ffd89f2271a0b59a0d46dc765e",
+    "src\\projective_pkg.vhd": "d0c489f9dd3b83c1a0a2ad2ddd53252e89e00c2e26892b7f134ca50292f502a7",
+    "src\\top.vhd": "a169b918d395390b4242edbe392bff934640f51a0effbe58ad8969cc8aae8791",
+    "src\\triangulation.vhd": "91f6fde5aa23105de396e413ab17047969f4aed82a757d327b77196118ec4a3c",
+    "tb\\tb_essential_io.vhd": "bb3793cffbf7e201b81dbf93515a8959cb4143b08c7b6d3e90756f20ee24d448",
+    "tb\\tb_fundamental.vhd": "d13ceede95025d7145269f42bc30e3ad8255a1f83e9c5e33dbb77f5f92f29524",
+    "tb\\tb_top.vhd": "8042be16297e1072f9d38d9236257e6c00ddc50194d591efa5801c99451dc915",
+    "tests\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests\\test_essential.py": "1b3e89a300bf2a36d8f13cae16091cf9fed87b0d6c11672e0a050133cc5d7348",
+    "tests\\test_experiments.py": "7cfd3e3a6887fdf16b94ef7aae7bd8667999af8d19328a578ea6af0a540e50bc",
+    "tests\\test_manager.py": "e2c99bf5856c64496d54fe51be6a246b47248d244a5e7c7bd18c1e0726bd063a"
+  },
+  "unmeasurable": [
+    "ghdl_startup_seconds",
+    "ghdl_simulator_only_seconds"
+  ],
+  "git_head": "aeaa1799a358bd06b0f0fa2a1ec5b1e83f60050f",
+  "git_status": " M .gitignore\n M README.md\n M RELATORIO_TESTES.md\n?? docs/\n?? evidencias_testes/gerenciador/\n?? evidencias_testes/kernel_essencial/\n?? examples/\n?? experiments/\n?? hybrid_sfm/\n?? objective.md\n?? requirements-experiments.txt\n?? requirements-sfm.txt\n?? requirements.txt\n?? run_experiments.py\n?? tb/tb_essential_io.vhd\n?? tests/\n",
+  "dataset_sha256": "630217bb0ff80bbcb39582d35cb2b17479dc16bb0e95a57c9c6fabe989212d20",
+  "dataset_regeneration_identical": true,
+  "completed_utc": "2026-11-19T17:09:30.453642+00:00",
+  "counts": {
+    "dataset_cases": 59,
+    "evaluation_cases": 16,
+    "numeric_rows": 32,
+    "timing_rows": 320,
+    "policy_rows": 960,
+    "fault_rows": 21
+  },
+  "checks": {
+    "bit_exact_all_exported": true,
+    "all_faults_detected": true,
+    "numeric_repeat_stable": true
+  }
+}

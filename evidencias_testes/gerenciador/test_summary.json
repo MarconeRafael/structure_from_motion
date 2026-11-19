@@ -1,0 +1,36 @@
+{
+  "tests_run": 55,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds": 10.474407600006089,
+  "exit_code": 0,
+  "require_ghdl": true,
+  "require_opencv": true,
+  "followup_checks": [
+    {
+      "test": "ManagerTests.test_metrics_serialization_and_sfm_barrier",
+      "result": "passed"
+    },
+    {
+      "test": "ProfileAndCliTests.test_characterization_records_failures_without_fabricated_errors",
+      "result": "passed"
+    },
+    {
+      "test": "ProfileAndCliTests.test_cli_fixed_auto_and_characterization",
+      "result": "passed"
+    }
+  ],
+  "source_sha256": {
+    "hybrid_sfm\\__init__.py": "5ca04519fab714cf56ab38d6fe2a7569e844b45609d58216c0b17b32088f6354",
+    "hybrid_sfm\\__main__.py": "9488356a3b335849854136a726c98a52478b3b137541cea61f821ed81dc95b0e",
+    "hybrid_sfm\\backends.py": "52525851dcc68adc6a6913f7342f71d48b106482e1541197dde03dd9e9fc4c8c",
+    "hybrid_sfm\\fixed_point.py": "b8c2fc680d1b7c45f42762026dad67bee76a1cbd86de5730d64f787349c62bab",
+    "hybrid_sfm\\ghdl_backend.py": "e64b580e72afbc0d76bad6391c0f2e978cbf3d5373ec9514e5f4ff8feedbdc3b",
+    "hybrid_sfm\\manager.py": "3477705dbb2aa4d69a2b7e8b82cab9556f6ad604f63815d647e8b7834a3cf7bd",
+    "hybrid_sfm\\metrics.py": "1ecdd55eef5e9cecf8e71a3a7f48462b5cbc0c7026ee2ebeb5ac51042be2ceb7",
+    "hybrid_sfm\\profiles.py": "6091e301b5715c2c87f7b85d28dfb8099a28a1230bc3c0267d8af12fdc62e32b",
+    "hybrid_sfm\\reference.py": "b07c97800b3577ba43d300436444eb04c860edc16ec2c9e3093481f230b22aae",
+    "hybrid_sfm\\sfm.py": "f36705b4a52a50f38410bc060a311fbacd3b620af12fd6838d2478c03af32982"
+  }
+}

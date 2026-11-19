@@ -362,3 +362,251 @@ Nota de verificação: o comando `./run.sh` e os scripts Python foram executados
 - `evidencias_testes/reexecucao_ghdl/` — logs, resumo e script da reexecução completa com GHDL (seção 8.6).
 
 Código-fonte (`src/`, `tb/`, `*.py`, `*.sh`), imagens e demais arquivos do projeto não foram modificados nesta tarefa.
+
+## 15. Adendo — Etapa 1: kernel essencial isolado (2026-11-19)
+
+Este adendo registra uma execução posterior, independente da auditoria histórica
+acima. A implementação atende à Tarefa 1/3; não implementa o gerenciador descrito
+no objetivo geral. Evidência estruturada com versões, hashes das fontes, matrizes,
+saídas e resultados: [resultados.json](evidencias_testes/kernel_essencial/resultados.json).
+Contrato e reprodução: [KERNEL_ESSENCIAL.md](docs/KERNEL_ESSENCIAL.md).
+
+### Ambiente e comandos executados
+
+- Windows, Python 3.11.9 em `.venv`, NumPy **2.2.6**, instalado a partir de
+  `requirements.txt` com `python -m pip install --no-cache-dir -r requirements.txt`.
+- GHDL não estava no PATH do Windows nem disponível no WSL Ubuntu 22.04.
+  Foi descompactado um GHDL **6.0.0 mcode** em `build/tools/ghdl`, a partir da
+  [release oficial](https://github.com/ghdl/ghdl/releases/tag/v6.0.0), sem instalação
+  global. SHA-256 do ZIP conferido contra o digest publicado pela API da release:
+  `c1562b2a4767e34d33159b536b5e36a8a38ebdb6e7672aa9969a4f4ac2cadffe`.
+- `GHDL` apontando para esse executável, `REQUIRE_GHDL=1` e comando
+  `python -m unittest discover -s tests -v`: **27 testes passaram**, sem falhas,
+  erros ou testes ignorados; duração observada da suíte: **7,246 s**. É tempo da
+  suíte completa, sem interpretação como benchmark do kernel.
+- `run.sh` inalterado, executado com Git Bash em `build/legacy_check`, contendo
+  cópias das fontes: exit 0, reports originais em 1455 ns, parada em 10 µs.
+- `tb_fundamental`: análise de suas dependências, elaboração e simulação com
+  `--std=08`, exit 0, parada em 1020 ns. Todos os oito subprocessos da verificação
+  legada retornaram 0.
+- Os três scripts OpenCV e o notebook não foram reexecutados nesta etapa;
+  suas verificações históricas permanecem descritas nas seções anteriores.
+- Linux/WSL não foi validado com simulação nesta execução: não havia GHDL na
+  distribuição. Os comandos para esse ambiente estão documentados.
+
+### Resultados e correções realizadas
+
+| Verificação | Resultado observado |
+|---|---|
+| Identidade, F=0, K=0 e solução analítica não diagonal | Nove saídas exportadas e corretas |
+| Mudança de F/K, pedidos consecutivos sem reset e repetição após reset | Correspondência com as referências; uma borda por pedido |
+| Prioridade de reset, E=0 e estabilidade sem start | Assertions do testbench aprovadas |
+| 30 casos com semente 42, F em [-1,1] e K em [-2,2] | Bit-exatos, sem overflow; erro absoluto máximo < 0,002 em cada caso |
+| Extremos Q15.16 e entradas fora da faixa, NaN e infinitos | Extremos aceitos; entradas inválidas rejeitadas antes de executar GHDL |
+| `F=I`, `K=200I` | NumPy=40000I; RTL=-25536I; erro máximo 65536; overflow sinalizado |
+| F constante histórica e K=525 | Nove inteiros iguais ao relatório histórico; erro máximo 131072; resultado marcado inválido |
+| Acumulador signed64 excedido | Modelo detecta overflow; saída RTL continua bit-exata |
+| RTL adulterado com U/X/Z/W/L/H/- após start | Todas as variantes causam falha explícita de simulação |
+| RTL adulterado com ready travado | Timeout em ciclos causa falha |
+| Processo deliberadamente lento ou com exit 7 | Timeout de parede/exit code e stdout/stderr capturados |
+| RTL adulterado com saída zero definida | Comparação inteira detecta discrepância |
+| Compilação inválida ou saída ausente/malformada | Erros identificados por estágio |
+| Cache reutilizado, fonte alterada, artefato removido/corrompido | Reuso somente válido; demais casos recompilados |
+| CLI | JSON produzido; exits 0, 1 e 2 cobertos |
+
+Na primeira execução RTL, a elaboração estática do GHDL tentou abrir a entrada
+antes da simulação. O testbench foi corrigido para usar `file_open` no processo de
+estímulo, e a suíte completa passou depois da correção. A interface nova também
+elimina a aceitação silenciosa de entradas fora da faixa e impede tratar overflow
+como resultado matematicamente válido.
+
+Não foi identificado defeito de `Mat3Mul` em relação ao contrato inteiro atual.
+Seu truncamento e wrap são limitações numéricas reais, mantidas e caracterizadas;
+não foram alterados tipos nem operações do RTL para ocultá-las. `ready` permanece
+alto até reset, por contrato do código existente; o testbench amostra a saída
+depois de uma nova borda com start, sem depender de outra subida de ready.
+
+`src/*.vhd`, `tb/tb_top.vhd`, `tb/tb_fundamental.vhd`, `run.sh` e os scripts
+anteriores permanecem inalterados. Os defeitos do pipeline integrado documentados
+na auditoria continuam abertos. Compilar e terminar seus testbenches não comprova
+correção geométrica. Não há resultados novos de FPGA física, síntese mapeada,
+aceleração, seleção de backend ou desempenho final.
+
+## 16. Adendo — Etapa 2: gerenciador de execução (2026-11-19)
+
+Implementação e limites em [GERENCIADOR.md](docs/GERENCIADOR.md). A Etapa 3 não
+foi iniciada. As fontes VHDL e o testbench do kernel mantêm os cinco hashes
+registrados na Etapa 1; `run.sh` e os scripts OpenCV anteriores não foram alterados.
+
+### Alterações desta etapa
+
+- Novos `hybrid_sfm/backends.py`, `manager.py`, `metrics.py`, `profiles.py` e
+  `sfm.py`: contrato uniforme, seleção por perfis, métricas/JSON, caracterização
+  e integração mínima com F fornecida ou correspondências.
+- `hybrid_sfm/__main__.py` ampliado com modos fixos/auto, limites, preferências,
+  fallback e geração de perfis; CLI da Etapa 1 preservada sem `--backend`.
+- Novos `tests/test_manager.py`, `examples/demo_manager.py`,
+  `requirements-sfm.txt` e `docs/GERENCIADOR.md`.
+- `requirements.txt`, `README.md`, `docs/KERNEL_ESSENCIAL.md` e este relatório
+  atualizados. Evidências novas em `evidencias_testes/gerenciador/`.
+
+### Testes executados
+
+Ambiente: Windows, Python 3.11.9, NumPy 2.2.6, GHDL 6.0.0 mcode portátil.
+OpenCV headless 4.12.0.88 instalado no venv com
+`python -m pip install --no-cache-dir -r requirements-sfm.txt` para validar a
+integração opcional com correspondências.
+
+Com `GHDL` apontando para a cópia portátil, `REQUIRE_GHDL=1` e
+`REQUIRE_OPENCV=1`, a descoberta `python -m unittest discover -s tests -v`
+foi executada pelo runner `unittest`: **55 testes passaram, zero falhas, zero
+erros, zero testes ignorados** (10,146 s informados pelo runner).
+O [log integral](evidencias_testes/gerenciador/tests.txt) e o
+[resumo com hashes](evidencias_testes/gerenciador/test_summary.json) foram preservados.
+
+Após ajustes localizados na barreira contra E nula, registro de detalhes
+malformados e validação da raiz JSON, os três testes afetados foram reexecutados
+e passaram. Esses três são verificações adicionais de testes já contados na
+suíte, não novos testes distintos. `pip check` informou ausência de dependências
+quebradas; `git diff --check` terminou sem erros.
+
+A cobertura nova inclui os dois backends uniformes, seleção por perfis,
+empate/reprodução, restrições impossíveis, perfis incompatíveis, indisponibilidade,
+timeout real de subprocesso, saída inválida, violação numérica posterior,
+fallback desativado/inviável, orçamento acumulado, serialização e integração SfM.
+Perfis sintéticos são usados somente nos testes da lógica de decisão.
+
+### Demonstração medida
+
+Comando executado:
+
+```text
+python -m examples.demo_manager --inject-timeout --output-dir evidencias_testes/gerenciador
+```
+
+O script mediu o caso de `examples/essential_identity.json` com três repetições
+após um aquecimento. Dados originais, versões, configurações, amostras e resumos
+estão em [profiles.json](evidencias_testes/gerenciador/profiles.json).
+
+| Backend | Maior erro absoluto observado | Maior tempo por tentativa | Taxa de falhas das amostras |
+|---|---:|---:|---:|
+| software | 0 | 0,000032600 s | 0/3 |
+| rtl_simulated | 0 | 0,113461400 s | 0/3 |
+
+Esses tempos incluem o contrato uniforme e sua validação. São observações de
+uma demonstração operacional em entrada controlada, não benchmarks definitivos.
+Não foram usados para alegar benefício de desempenho em aplicação real.
+
+[decisions.json](evidencias_testes/gerenciador/decisions.json) contém os resultados:
+
+| Política/caso | Seleção inicial | Resultado |
+|---|---|---|
+| software fixo | software | ok, sem fallback |
+| RTL fixo | rtl_simulated | ok, sem fallback |
+| auto/min_time | software | ok; menor máximo observado no perfil |
+| auto/prefer_rtl | rtl_simulated | ok; candidato viável |
+| Orçamento zero | nenhuma | no_feasible_configuration, sem tentativa |
+| Timeout injetado | rtl_simulated | fallback_ok, resultado final de software |
+
+No caso de falha, o watchdog da simulação foi reduzido deliberadamente a 1 µs;
+um subprocesso GHDL real foi interrompido. O resultado registrou um timeout,
+uma tentativa falha, um fallback, `initial_selection_success=false`, tempo da
+tentativa inicial ≈0,0514563 s, fallback ≈0,0001730 s e total ≈0,0753675 s.
+A injeção não faz parte das amostras normais nem de uma estimativa de taxa de
+falhas naturais. Perfis e parâmetros da decisão original não foram adulterados.
+
+### Limitações abertas
+
+Os máximos empíricos não garantem erro/tempo em todo o envelope; verificações
+posteriores continuam necessárias. O erro usa a escala original de E e não
+mede diretamente a qualidade da reconstrução. Consultas de versão/hashes têm
+custo: no exemplo, a decisão auto levou ≈0,0182048 s, acima do cálculo NumPy.
+O orçamento é observado, sem garantia de prazo de tempo real.
+
+O caminho com F fornecida permite testes numéricos controlados, inclusive matrizes
+sem significado físico. Antes de pose/triangulação, `require_valid_essential`
+recusa resultado inválido ou E nula. Não foram completados os placeholders VHDL,
+nem implementados benchmarks de publicação, FPGA física ou recursos de síntese.
+A execução desta etapa foi validada no Windows; Linux/WSL permanece sem uma
+execução local com GHDL instalada na distribuição.
+
+## 17. Adendo — Etapa 3: experimentos reproduzíveis (2026-11-19)
+
+O comando `python run_experiments.py --config experiments/config.json` foi
+implementado e executado integralmente. Metodologia e avaliação estão em
+[EXPERIMENTS.md](docs/EXPERIMENTS.md), [METHODOLOGY.md](docs/METHODOLOGY.md),
+[RESULTS.md](docs/RESULTS.md), [LIMITATIONS.md](docs/LIMITATIONS.md) e
+[PAPER_OUTLINE.md](docs/PAPER_OUTLINE.md).
+
+### Arquivos e decisões técnicas
+
+- Criados `run_experiments.py`, `experiments/config.json`, `experiments/__init__.py`,
+  `datasets.py`, `analysis.py`, `faults.py`, `runner.py` e `report.py` em `experiments/`.
+- Criados `tests/test_experiments.py` e `requirements-experiments.txt`; Matplotlib
+  3.10.7 é dependência adicional somente para figuras estáticas da avaliação.
+- Novos documentos científicos acima; README e documentação do gerenciador
+  atualizados. Dados brutos, tabelas e figuras ficam em `experiments/results/`.
+- Nenhum módulo VHDL, testbench original, backend, seletor ou script de extração
+  anterior foi alterado para obter resultados favoráveis.
+
+Os perfis são medidos somente nos 33 casos de caracterização. Dez casos distintos
+servem para desenvolvimento, e 16 para a avaliação final. O cenário padrão é
+congelado antes da avaliação, e todos os cinco cenários previamente declarados
+são relatados. `auto` não usa o erro atual para decidir. O comparador com a melhor
+política fixa é calculado posteriormente e não alimenta o seletor.
+
+Inicialização/JIT e execução interna GHDL não podem ser isoladas com a
+instrumentação atual: seus campos são `null`, e o subprocesso combinado é
+medido explicitamente. Compilação fria é registrada à parte; todas as medidas
+temporais finais RTL usaram cache. Não são apresentadas métricas físicas de FPGA.
+
+### Execuções e resultados
+
+1. Auditoria prévia: 55 testes existentes passaram, sem falhas ou ignorados.
+2. Seis testes novos verificaram geometria independente, splits disjuntos,
+   determinismo, métricas de erro, CSV/percentis e comparador posterior.
+3. Execução principal em
+   [20261119T170335054730Z](experiments/results/20261119T170335054730Z/RESULTS.md):
+   61 testes passaram; 32 observações numéricas, 320 temporais, 960 de políticas
+   e 21 de falhas controladas. Todos os JSONs/CSVs e três figuras PNG/PDF foram
+   gerados, e as figuras foram inspecionadas visualmente.
+4. Reinstalação em venv novo a partir do lock, seguida de repetição completa em
+   [clean_install/20261119T170758989402Z](experiments/results/clean_install/20261119T170758989402Z/RESULTS.md):
+   61 testes passaram, sem ignorados. Dataset, 32 saídas numéricas e 960 decisões/
+   estados/saídas coincidiram com a execução principal. Tempos variaram.
+5. Verificação posterior recalculou todas as matrizes inteiras, tabelas, contagens
+   CSV e hashes das fontes/dataset nas duas execuções. Resultado em
+   [clean_install_comparison.json](experiments/results/20261119T170335054730Z/clean_install_comparison.json).
+   `pip check` e `git diff --check` passaram.
+
+Resultado principal: 32/32 saídas bit-exatas, das quais seis inválidas por overflow.
+As populações temporais pareadas válidas têm 130 observações por backend, com
+medianas **38,75 µs software** e **87,8409 ms RTL simulado**; software foi mais
+rápido em todos esses pares. O overhead pareado auto no cenário balanceado teve
+mediana **15,2147 ms**. Não se conclui aceleração do gerenciador.
+
+Nos cenários estrito/balanceado/preferência RTL, auto teve 56/64 requisições válidas
+e oito recusas por cobertura insuficiente dos perfis, apesar de software fixo
+funcionar. Com orçamento de 5 ms, a própria decisão excedeu o limite e auto
+recusou todos os casos. As 21 injeções foram detectadas; recuperações preservaram
+a falha da escolha inicial. Entre as duas repetições da execução principal,
+16/16 resultados numéricos e 480/480 combinações de decisão/status/saída foram
+estáveis. As regras não foram reajustadas depois dessas observações.
+
+Somente o limite inferior do eixo das figuras de erro foi corrigido após
+inspeção visual. As figuras foram regeneradas dos mesmos registros, sem alterar
+medidas. A execução principal preserva snapshot/hashes originais e identifica
+esse pós-processamento. A instalação limpa já utiliza o ajuste de apresentação.
+
+### Impedimentos e conclusão científica
+
+Linux/WSL não foi executado com GHDL na distribuição; a validação local permanece
+Windows. A instalação Python limpa foi validada, não um sistema operacional novo.
+Uma única cena real e intrínsecos estimados limitam generalização; não há ground
+truth real de pose/reconstrução. Os defeitos anteriores do pipeline continuam.
+
+Os dados sustentam um estudo de caso sobre verificação numérica, limites de
+perfis empíricos e overhead, não uma vantagem de aceleração ou uma contribuição
+original já comprovada. Revisão bibliográfica, mais cenas calibradas, avaliação
+geométrica e reprodução em outras plataformas permanecem necessárias antes de
+uma submissão. A estrutura proposta do artigo explicita essas pendências.

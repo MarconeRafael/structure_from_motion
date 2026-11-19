@@ -1,0 +1,6550 @@
+{
+  "tables": {
+    "numeric": [
+      {
+        "category": "controlled",
+        "samples": 22,
+        "exported": 22,
+        "bit_exact": 22,
+        "valid_no_overflow": 16,
+        "overflow": 6,
+        "max_absolute_error_all": 309218317959168.0,
+        "max_absolute_error_valid": 2.690053067588849e-05,
+        "relative_undefined": 0,
+        "valid_rate": 0.7272727272727273
+      },
+      {
+        "category": "repository_images",
+        "samples": 4,
+        "exported": 4,
+        "bit_exact": 4,
+        "valid_no_overflow": 4,
+        "overflow": 0,
+        "max_absolute_error_all": 3.2103389825520665,
+        "max_absolute_error_valid": 3.2103389825520665,
+        "relative_undefined": 0,
+        "valid_rate": 1.0
+      },
+      {
+        "category": "synthetic_geometry",
+        "samples": 6,
+        "exported": 6,
+        "bit_exact": 6,
+        "valid_no_overflow": 6,
+        "overflow": 0,
+        "max_absolute_error_all": 0.027354457134013667,
+        "max_absolute_error_valid": 0.027354457134013667,
+        "relative_undefined": 0,
+        "valid_rate": 1.0
+      }
+    ],
+    "timing": [
+      {
+        "backend": "software",
+        "population": "all_valid",
+        "samples": 160,
+        "seconds_median": 3.924999327864498e-05,
+        "seconds_p90": 6.596000748686491e-05,
+        "seconds_p95": 8.294499129988251e-05
+      },
+      {
+        "backend": "software",
+        "population": "paired_valid",
+        "samples": 130,
+        "seconds_median": 3.914999251719564e-05,
+        "seconds_p90": 6.291001336649062e-05,
+        "seconds_p95": 7.512500305892899e-05
+      },
+      {
+        "backend": "rtl_simulated",
+        "population": "all_valid",
+        "samples": 130,
+        "seconds_median": 0.08618615001614671,
+        "seconds_p90": 0.09132997999549844,
+        "seconds_p95": 0.09550650000164751
+      },
+      {
+        "backend": "rtl_simulated",
+        "population": "paired_valid",
+        "samples": 130,
+        "seconds_median": 0.08618615001614671,
+        "seconds_p90": 0.09132997999549844,
+        "seconds_p95": 0.09550650000164751
+      }
+    ],
+    "policies": [
+      {
+        "scenario": "balanced",
+        "policy": "software",
+        "requests": 64,
+        "valid": 64,
+        "valid_rate": 1.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 5.86500100325793e-05,
+        "seconds_p90": 9.686998964753002e-05,
+        "seconds_p95": 0.00010556001798249779,
+        "decision_seconds_median": 2.854999911505729e-05,
+        "decision_seconds_p90": 4.864000075031073e-05,
+        "decision_seconds_p95": 5.217001453274861e-05
+      },
+      {
+        "scenario": "balanced",
+        "policy": "rtl_simulated",
+        "requests": 64,
+        "valid": 40,
+        "valid_rate": 0.625,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 24,
+        "error_violations": 12,
+        "time_overruns": 0,
+        "seconds_median": 0.08639584999764338,
+        "seconds_p90": 0.09089392999594566,
+        "seconds_p95": 0.09140444999502506,
+        "decision_seconds_median": 2.4399982066825032e-05,
+        "decision_seconds_p90": 4.061999788973482e-05,
+        "decision_seconds_p95": 5.007001163903619e-05
+      },
+      {
+        "scenario": "balanced",
+        "policy": "auto",
+        "requests": 64,
+        "valid": 56,
+        "valid_rate": 0.875,
+        "no_feasible": 8,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 0.015099950003786944,
+        "seconds_p90": 0.016378720005741344,
+        "seconds_p95": 0.016744249993644187,
+        "decision_seconds_median": 0.015053249997436069,
+        "decision_seconds_p90": 0.016319209997891448,
+        "decision_seconds_p95": 0.016686734996619632
+      },
+      {
+        "scenario": "impossible",
+        "policy": "software",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 64,
+        "error_violations": 0,
+        "time_overruns": 64,
+        "seconds_median": 7.444998482242227e-05,
+        "seconds_p90": 9.14000062039122e-05,
+        "seconds_p95": 0.00011119000701000912,
+        "decision_seconds_median": 3.1800009310245514e-05,
+        "decision_seconds_p90": 4.099000070709736e-05,
+        "decision_seconds_p95": 6.275499617913732e-05
+      },
+      {
+        "scenario": "impossible",
+        "policy": "rtl_simulated",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 64,
+        "error_violations": 52,
+        "time_overruns": 64,
+        "seconds_median": 0.08731134999834467,
+        "seconds_p90": 0.09022787000285462,
+        "seconds_p95": 0.09208698000147705,
+        "decision_seconds_median": 3.029999788850546e-05,
+        "decision_seconds_p90": 4.538998473435642e-05,
+        "decision_seconds_p95": 4.8324993986170736e-05
+      },
+      {
+        "scenario": "impossible",
+        "policy": "auto",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 64,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 64,
+        "seconds_median": 0.014953399993828498,
+        "seconds_p90": 0.016749870000057853,
+        "seconds_p95": 0.017245950004144105,
+        "decision_seconds_median": 0.014951849996577948,
+        "decision_seconds_p90": 0.016748469998128714,
+        "decision_seconds_p95": 0.01724453501810785
+      },
+      {
+        "scenario": "rtl_preferred",
+        "policy": "software",
+        "requests": 64,
+        "valid": 64,
+        "valid_rate": 1.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 5.875001079402864e-05,
+        "seconds_p90": 9.154000726994128e-05,
+        "seconds_p95": 0.00010082999069709327,
+        "decision_seconds_median": 2.7950009098276496e-05,
+        "decision_seconds_p90": 4.9119984032586225e-05,
+        "decision_seconds_p95": 5.498998652910813e-05
+      },
+      {
+        "scenario": "rtl_preferred",
+        "policy": "rtl_simulated",
+        "requests": 64,
+        "valid": 40,
+        "valid_rate": 0.625,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 24,
+        "error_violations": 12,
+        "time_overruns": 0,
+        "seconds_median": 0.08726639999076724,
+        "seconds_p90": 0.09131336000573356,
+        "seconds_p95": 0.09526542998937657,
+        "decision_seconds_median": 2.47000134550035e-05,
+        "decision_seconds_p90": 4.163999692536891e-05,
+        "decision_seconds_p95": 5.128501215949655e-05
+      },
+      {
+        "scenario": "rtl_preferred",
+        "policy": "auto",
+        "requests": 64,
+        "valid": 56,
+        "valid_rate": 0.875,
+        "no_feasible": 8,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 0.05938264999713283,
+        "seconds_p90": 0.10678196999942884,
+        "seconds_p95": 0.11336988000402923,
+        "decision_seconds_median": 0.0150932500109775,
+        "decision_seconds_p90": 0.016569940000772478,
+        "decision_seconds_p95": 0.01703349999443162
+      },
+      {
+        "scenario": "strict",
+        "policy": "software",
+        "requests": 64,
+        "valid": 64,
+        "valid_rate": 1.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 5.2400006097741425e-05,
+        "seconds_p90": 8.010999881662429e-05,
+        "seconds_p95": 9.605999221093944e-05,
+        "decision_seconds_median": 2.4749984731897712e-05,
+        "decision_seconds_p90": 3.867000341415405e-05,
+        "decision_seconds_p95": 4.2804985423572344e-05
+      },
+      {
+        "scenario": "strict",
+        "policy": "rtl_simulated",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 64,
+        "error_violations": 52,
+        "time_overruns": 0,
+        "seconds_median": 0.08827609999570996,
+        "seconds_p90": 0.09364676998229697,
+        "seconds_p95": 0.10041471499280305,
+        "decision_seconds_median": 2.3649990907870233e-05,
+        "decision_seconds_p90": 3.4900003811344504e-05,
+        "decision_seconds_p95": 3.994498838437719e-05
+      },
+      {
+        "scenario": "strict",
+        "policy": "auto",
+        "requests": 64,
+        "valid": 56,
+        "valid_rate": 0.875,
+        "no_feasible": 8,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 0.01533100001688581,
+        "seconds_p90": 0.01643878000904806,
+        "seconds_p95": 0.016726019990164785,
+        "decision_seconds_median": 0.015272400007233955,
+        "decision_seconds_p90": 0.016374990020995028,
+        "decision_seconds_p95": 0.016665495003690012
+      },
+      {
+        "scenario": "tight_deadline",
+        "policy": "software",
+        "requests": 64,
+        "valid": 64,
+        "valid_rate": 1.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 0,
+        "seconds_median": 7.490000280085951e-05,
+        "seconds_p90": 9.615000453777613e-05,
+        "seconds_p95": 0.00012278498761588702,
+        "decision_seconds_median": 3.1799994758330286e-05,
+        "decision_seconds_p90": 4.681001591961831e-05,
+        "decision_seconds_p95": 5.94549957895651e-05
+      },
+      {
+        "scenario": "tight_deadline",
+        "policy": "rtl_simulated",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 0,
+        "fallbacks": 0,
+        "failed_attempts": 64,
+        "error_violations": 12,
+        "time_overruns": 64,
+        "seconds_median": 0.08701830000791233,
+        "seconds_p90": 0.091528240009211,
+        "seconds_p95": 0.09617897998541593,
+        "decision_seconds_median": 2.4349996238015592e-05,
+        "decision_seconds_p90": 3.915998677257449e-05,
+        "decision_seconds_p95": 4.48549966677092e-05
+      },
+      {
+        "scenario": "tight_deadline",
+        "policy": "auto",
+        "requests": 64,
+        "valid": 0,
+        "valid_rate": 0.0,
+        "no_feasible": 64,
+        "fallbacks": 0,
+        "failed_attempts": 0,
+        "error_violations": 0,
+        "time_overruns": 64,
+        "seconds_median": 0.015081499994266778,
+        "seconds_p90": 0.016436670001712627,
+        "seconds_p95": 0.0170010550020379,
+        "decision_seconds_median": 0.01507984999625478,
+        "decision_seconds_p90": 0.016435060009825975,
+        "decision_seconds_p95": 0.01699804000381846
+      }
+    ],
+    "faults": [
+      {
+        "fault": "unavailable_before_selection",
+        "fallback_policy": "software",
+        "status": "ok",
+        "selected_backend": "software",
+        "backend": "software",
+        "fallback_count": 0,
+        "initial_success": true,
+        "detection_ok": true,
+        "total_seconds": 0.008938599989051
+      },
+      {
+        "fault": "unavailable_before_selection",
+        "fallback_policy": "none",
+        "status": "ok",
+        "selected_backend": "software",
+        "backend": "software",
+        "fallback_count": 0,
+        "initial_success": true,
+        "detection_ok": true,
+        "total_seconds": 0.008647399983601645
+      },
+      {
+        "fault": "unavailable_before_selection",
+        "fallback_policy": "no_alternative",
+        "status": "no_feasible_configuration",
+        "selected_backend": null,
+        "backend": null,
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.008429899986367673
+      },
+      {
+        "fault": "unavailable_after_selection",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.036954699986381456
+      },
+      {
+        "fault": "unavailable_after_selection",
+        "fallback_policy": "none",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.03859319997718558
+      },
+      {
+        "fault": "unavailable_after_selection",
+        "fallback_policy": "no_alternative",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.03761470000608824
+      },
+      {
+        "fault": "timeout",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.05478129998664372
+      },
+      {
+        "fault": "timeout",
+        "fallback_policy": "none",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.06021199998212978
+      },
+      {
+        "fault": "timeout",
+        "fallback_policy": "no_alternative",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.04395069999736734
+      },
+      {
+        "fault": "invalid_file",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10352500001317821
+      },
+      {
+        "fault": "invalid_file",
+        "fallback_policy": "none",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10439490000135265
+      },
+      {
+        "fault": "invalid_file",
+        "fallback_policy": "no_alternative",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.09837839999818243
+      },
+      {
+        "fault": "incomplete_output",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10494869999820367
+      },
+      {
+        "fault": "incomplete_output",
+        "fallback_policy": "none",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10201299999607727
+      },
+      {
+        "fault": "incomplete_output",
+        "fallback_policy": "no_alternative",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10372169999754988
+      },
+      {
+        "fault": "undefined_rtl",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.09722629998577759
+      },
+      {
+        "fault": "undefined_rtl",
+        "fallback_policy": "none",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.1021912999858614
+      },
+      {
+        "fault": "undefined_rtl",
+        "fallback_policy": "no_alternative",
+        "status": "error",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.1035400000109803
+      },
+      {
+        "fault": "numeric_limit",
+        "fallback_policy": "software",
+        "status": "fallback_ok",
+        "selected_backend": "rtl_simulated",
+        "backend": "software",
+        "fallback_count": 1,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.09930599998915568
+      },
+      {
+        "fault": "numeric_limit",
+        "fallback_policy": "none",
+        "status": "constraint_violation",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10227050000685267
+      },
+      {
+        "fault": "numeric_limit",
+        "fallback_policy": "no_alternative",
+        "status": "constraint_violation",
+        "selected_backend": "rtl_simulated",
+        "backend": "rtl_simulated",
+        "fallback_count": 0,
+        "initial_success": false,
+        "detection_ok": true,
+        "total_seconds": 0.10091219999594614
+      }
+    ],
+    "comparisons": [
+      {
+        "scenario": "balanced",
+        "requests": 64,
+        "initial_feasible_ex_post": 56,
+        "missed_observed_feasible": 8,
+        "overhead_seconds_median": 0.015072050009621307,
+        "overhead_seconds_p90": 0.016408050010795705,
+        "overhead_seconds_p95": 0.016721824984415434,
+        "oracle_excess_seconds_median": 0.015072050009621307,
+        "oracle_excess_seconds_p90": 0.016408050010795705,
+        "oracle_excess_seconds_p95": 0.016721824984415434
+      },
+      {
+        "scenario": "impossible",
+        "requests": 64,
+        "initial_feasible_ex_post": 0,
+        "missed_observed_feasible": 0,
+        "overhead_seconds_median": null,
+        "overhead_seconds_p90": null,
+        "overhead_seconds_p95": null,
+        "oracle_excess_seconds_median": null,
+        "oracle_excess_seconds_p90": null,
+        "oracle_excess_seconds_p95": null
+      },
+      {
+        "scenario": "rtl_preferred",
+        "requests": 64,
+        "initial_feasible_ex_post": 56,
+        "missed_observed_feasible": 8,
+        "overhead_seconds_median": 0.01525320002110675,
+        "overhead_seconds_p90": 0.0200306499900762,
+        "overhead_seconds_p95": 0.024227425012213644,
+        "oracle_excess_seconds_median": 0.09844485002395231,
+        "oracle_excess_seconds_p90": 0.10710065001330804,
+        "oracle_excess_seconds_p95": 0.11405262499465607
+      },
+      {
+        "scenario": "strict",
+        "requests": 64,
+        "initial_feasible_ex_post": 56,
+        "missed_observed_feasible": 8,
+        "overhead_seconds_median": 0.015271950018359348,
+        "overhead_seconds_p90": 0.016327100005582906,
+        "overhead_seconds_p95": 0.016549375010072254,
+        "oracle_excess_seconds_median": 0.015271950018359348,
+        "oracle_excess_seconds_p90": 0.016327100005582906,
+        "oracle_excess_seconds_p95": 0.016549375010072254
+      },
+      {
+        "scenario": "tight_deadline",
+        "requests": 64,
+        "initial_feasible_ex_post": 0,
+        "missed_observed_feasible": 64,
+        "overhead_seconds_median": null,
+        "overhead_seconds_p90": null,
+        "overhead_seconds_p95": null,
+        "oracle_excess_seconds_median": null,
+        "oracle_excess_seconds_p90": null,
+        "oracle_excess_seconds_p95": null
+      }
+    ]
+  },
+  "reproducibility": [
+    {
+      "kind": "numeric",
+      "key": [
+        "bounded/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "bounded/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "tiny/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "tiny/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "mixed/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "mixed/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "overflow32/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "limits/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "overflow32/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "limits/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "accumulator64/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "calibrated_cameras/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "calibrated_cameras/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "calibrated_cameras/evaluation/02"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "estimated_intrinsics/evaluation/00"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "numeric",
+      "key": [
+        "estimated_intrinsics/evaluation/01"
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "strict",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "balanced",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "rtl_preferred",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "tight_deadline",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "software",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "auto",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        0
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "accumulator64/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/02",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "overflow32/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "tiny/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "mixed/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "estimated_intrinsics/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "limits/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "bounded/evaluation/01",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "auto",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "rtl_simulated",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    },
+    {
+      "kind": "policy",
+      "key": [
+        "calibrated_cameras/evaluation/00",
+        "impossible",
+        "software",
+        1
+      ],
+      "observations": 2,
+      "comparable": true,
+      "stable": true
+    }
+  ],
+  "frozen_scenario": "strict"
+}

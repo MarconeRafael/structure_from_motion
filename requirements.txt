@@ -1,0 +1,3 @@
+# Dependência das Etapas 1 e 2; unittest faz parte da biblioteca padrão.
+# Os scripts OpenCV anteriores continuam com seu ambiente setup_env.sh.
+numpy==2.2.6

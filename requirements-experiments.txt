@@ -1,0 +1,3 @@
+-r requirements-sfm.txt
+# Figuras estáticas; não é necessário para os backends ou o gerenciador.
+matplotlib==3.10.7

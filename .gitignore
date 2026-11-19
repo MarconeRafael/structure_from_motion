@@ -44,3 +44,8 @@ Thumbs.db
 .venv
 .venv/
 .venv/*
+
+# Kernel essencial isolado: compilação, ferramentas locais e testes
+/build/
+__pycache__/
+*.pyc

@@ -4,6 +4,85 @@ Protótipo de um pipeline de Structure from Motion para duas vistas, descrito em
 
 > **Estado real do projeto (resumo):** o VHDL implementa a **estrutura** do pipeline (módulos, interfaces, máquinas de estados e handshake entre etapas), mas a maior parte dos algoritmos numéricos é **placeholder**: a matriz fundamental, a SVD, a pose e a triangulação usam constantes ou aproximações que **não dependem dos pontos de entrada**. Os resultados geométricos mostrados nas imagens do repositório são calculados **em Python/OpenCV**, não pelo VHDL. Detalhes e evidências nas seções abaixo.
 
+## Avaliação experimental — Etapa 3
+
+O comando abaixo audita os testes, gera dados com splits separados, caracteriza
+os backends e executa as políticas fixas/auto, falhas controladas e verificações
+de repetibilidade. Exporta CSV, JSON, tabelas e figuras PNG/PDF sem GUI.
+
+```bash
+python -m pip install -r requirements-experiments.txt
+python run_experiments.py --config experiments/config.json
+```
+
+GHDL deve estar no PATH ou ser indicado por `GHDL`/`--ghdl`. Cada execução cria
+um diretório identificado em `experiments/results/`, preservando os dados brutos.
+Veja [reprodução](docs/EXPERIMENTS.md), [metodologia](docs/METHODOLOGY.md),
+[resultados medidos](docs/RESULTS.md), [limitações](docs/LIMITATIONS.md) e
+[estrutura proposta do artigo](docs/PAPER_OUTLINE.md).
+
+Na avaliação entregue, NumPy foi mais rápido nos 130 pares temporais válidos.
+O gerenciador teve overhead mensurável e não superou software fixo. A equivalência
+inteira do RTL foi confirmada, incluindo casos com overflow que permanecem inválidos.
+O estudo é de simulação e verificação; não demonstra aceleração FPGA nem ineditismo.
+
+## Gerenciador de execução — Etapa 2
+
+`hybrid_sfm` agora oferece políticas `software`, `rtl_simulated` e `auto`.
+O gerenciador filtra perfis previamente medidos por domínio de entrada, versões,
+erro e tempo; depois aplica a preferência solicitada. Valida o resultado e
+registra separadamente falha inicial, fallback e tempo total. Sem candidato
+viável, retorna `no_feasible_configuration`.
+
+```bash
+# Mesma instalação Python da Etapa 1; GHDL necessário para RTL
+python -m hybrid_sfm --backend software
+python -m hybrid_sfm --backend rtl_simulated
+
+# Caracterização local primeiro, seleção depois. Sem --input usa um caso fixo.
+python -m hybrid_sfm --characterize --output perfis.json
+python -m hybrid_sfm --backend auto --profiles perfis.json --max-error 0.01
+python -m hybrid_sfm --backend auto --profiles perfis.json --prefer prefer_rtl --fallback software
+```
+
+`--max-error` é o maior erro absoluto entre componentes de E e a referência
+NumPy float64, na escala original, sem normalização. `--max-seconds` limita o
+tempo de parede medido da requisição ao gerenciador, incluindo decisão e fallback;
+`--timeout` controla cada subprocesso. Modos fixos não fazem fallback.
+
+Para correspondências já extraídas, a integração estima F em OpenCV e delega
+somente E; instale `requirements-sfm.txt` para esse caminho opcional.
+Use `require_valid_essential` antes de continuar para pose/triangulação.
+Os scripts OpenCV e o RTL anteriores permanecem disponíveis.
+
+API, formato dos perfis, limitações e exemplo verificável de falha/fallback:
+[docs/GERENCIADOR.md](docs/GERENCIADOR.md). A avaliação posterior está na Etapa 3 acima.
+
+## Kernel essencial isolado — Etapa 1
+
+O novo pacote `hybrid_sfm` executa **somente** `EssentialMatrixCalculator`:
+Python → F e K → GHDL → nove componentes de E → Python. Compara automaticamente
+o resultado com NumPy float64 e com um modelo inteiro bit-exato de Q15.16,
+rejeita entradas fora da faixa e sinaliza overflow. O gerenciador da Etapa 2
+reutiliza essa interface. O pipeline `SfM_Top` e `run.sh` continuam disponíveis.
+
+```bash
+# Linux/WSL, Python 3.10+ e GHDL no PATH
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+REQUIRE_GHDL=1 python -m unittest discover -s tests -v
+python -m hybrid_sfm --input examples/essential_identity.json --output resultado.json
+```
+
+Instale o GHDL no ambiente Linux/WSL antes desses comandos (por exemplo,
+`sudo apt install ghdl` em Ubuntu). Para um executável fora do PATH, use
+`--ghdl /caminho/ghdl` na CLI e a variável `GHDL` nos testes.
+Dependências dos scripts OpenCV anteriores continuam em `setup_env.sh`.
+
+Contrato numérico, API Python, protocolo, comandos Windows e resultados:
+[docs/KERNEL_ESSENCIAL.md](docs/KERNEL_ESSENCIAL.md).
+
 ## Sumário
 
 1. [Arquitetura real](#arquitetura-real)
@@ -19,7 +98,7 @@ Protótipo de um pipeline de Structure from Motion para duas vistas, descrito em
 
 ## Arquitetura real
 
-O projeto tem dois blocos independentes que **não se comunicam em tempo de execução**:
+O pipeline original tem dois blocos independentes que **não se comunicam em tempo de execução**. A interface automática da Etapa 1 acima executa o kernel essencial separadamente:
 
 | Bloco | Papel (confirmado no código) | Arquivos |
 |---|---|---|
@@ -30,7 +109,7 @@ O projeto tem dois blocos independentes que **não se comunicam em tempo de exec
 
 Evidências:
 
-- **Não há interface Python ↔ VHDL automática.** `extract_points.py` apenas grava `vhdl_points_data.txt` e `generate_test_data.py` grava `vhdl_testbench_data.txt`; nenhum script chama o GHDL nem lê saídas do VHDL. A transferência de dados para o VHDL é **manual** (copiar o texto para dentro do processo `stimulus` de [tb/tb_top.vhd](tb/tb_top.vhd)). Nenhum script faz essa colagem.
+- **O fluxo original de pontos → `SfM_Top` continua manual.** `extract_points.py` apenas grava `vhdl_points_data.txt` e `generate_test_data.py` grava `vhdl_testbench_data.txt`; esses dois scripts não chamam o GHDL nem leem saídas do VHDL. A transferência de pontos para o pipeline é **manual** (copiar o texto para dentro do processo `stimulus` de [tb/tb_top.vhd](tb/tb_top.vhd)). A interface `hybrid_sfm` recebe F e K explicitamente e executa apenas o kernel essencial.
 - **`visualize_vhdl_results.py` não lê nenhum resultado da simulação.** Os pontos estão digitados em `load_vhdl_results()` e K em `load_calibration_matrix()`; F, E, R, t e a triangulação vêm de `cv2.findFundamentalMat(..., FM_8POINT)`, `cv2.recoverPose` e `cv2.triangulatePoints` (funções `main()`). As mensagens finais do script ("Processamento: 100% VHDL", "validado com sucesso") **não são sustentadas pelo código**. Além disso, o `wave.vcd` gerado pelo GHDL **não contém** as matrizes: o VCD do GHDL registra "not handled" para sinais do tipo array (`pts1_in`, `fundamental_f`, `essential_e`, `pose_r`, `pose_t`, `points_3d`), conforme observado na execução descrita abaixo.
 - **Não há aceleração por hardware demonstrada.** Não existem arquivos de síntese/implementação (XDC/QSF/projeto Vivado/Quartus), relatórios de utilização/tempo ou evidência de execução em FPGA. Só há simulação comportamental (GHDL) e VHDL com construções não sintetizáveis no caminho de dados (por exemplo, divisão `/ 2` e laços `for` em funções, que podem ou não ser aceitas por uma ferramenta de síntese — **não verificado**).
 
@@ -129,7 +208,7 @@ Arquivos gerados em tempo de execução e ignorados pelo git ([.gitignore](.giti
 ## Pré-requisitos e instalação
 
 - **GHDL** (simulador VHDL) — versão usada pelo autor não está registrada no repositório. O GHDL **não estava instalado** no ambiente onde esta documentação foi auditada.
-- **Python 3 + OpenCV (com `SIFT_create`), NumPy, Matplotlib** — `setup_env.sh` instala `opencv-python numpy matplotlib` sem versões fixas (não há `requirements.txt`). Na auditoria foram usadas as versões OpenCV 5.0.0 (headless), NumPy 2.2.6, Matplotlib 3.10.9, Python 3 (WSL Ubuntu 22.04).
+- **Python 3 + OpenCV (com `SIFT_create`), NumPy, Matplotlib** — `setup_env.sh` instala as dependências dos scripts legados sem versões fixas. A Etapa 1 tem seu próprio `requirements.txt`, apenas com NumPy fixado; seus testes usam `unittest`. Na auditoria histórica foram usadas as versões OpenCV 5.0.0 (headless), NumPy 2.2.6, Matplotlib 3.10.9, Python 3 (WSL Ubuntu 22.04).
 - **GTKWave** (opcional) para abrir `wave.vcd`; não é referenciado por nenhum script.
 - Os scripts `.sh` requerem Bash (Linux/WSL).
 

@@ -1,0 +1,6 @@
+{
+  "scenario_id": "strict",
+  "rule": "max development successes, then smallest max_error, then scenario id",
+  "frozen_before_final_evaluation": true,
+  "evaluation_results_used": false
+}

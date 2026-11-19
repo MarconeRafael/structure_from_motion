@@ -1,0 +1,28 @@
+{
+  "primary": "experiments\\results\\20261119T170335054730Z",
+  "clean_install": "experiments\\results\\clean_install\\20261119T170758989402Z",
+  "dataset_identical": true,
+  "lock_identical": true,
+  "numeric_equal": 32,
+  "numeric_comparisons": 32,
+  "policy_equal": 960,
+  "policy_comparisons": 960,
+  "artifact_checks": {
+    "primary": {
+      "raw_records": 1386,
+      "csv_counts_match": true,
+      "all_tables_recomputed_equal": true,
+      "all_integer_matrices_recomputed_equal": true,
+      "dataset_hash_verified": true,
+      "source_hashes_verified": true
+    },
+    "clean_install": {
+      "raw_records": 1386,
+      "csv_counts_match": true,
+      "all_tables_recomputed_equal": true,
+      "all_integer_matrices_recomputed_equal": true,
+      "dataset_hash_verified": true,
+      "source_hashes_verified": true
+    }
+  }
+}
